@@ -3,6 +3,7 @@ uvicorn[standard]
 python-dotenv
 openai
 pydantic<2
+email-validator
 sqlalchemy
 asyncpg
 motor
