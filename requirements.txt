@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 python-dotenv
 openai
-pydantic
+pydantic<2
 sqlalchemy
 asyncpg
 motor
