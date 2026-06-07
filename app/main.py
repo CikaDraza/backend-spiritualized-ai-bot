@@ -36,6 +36,8 @@ from .crud import (
 )
 from .database import get_db
 from .email import send_verification_email
+from .rate_limit import rate_limit_chat
+from .redis_client import close_redis
 from .models import User
 from .schemas import (
     ChatRequest,
@@ -49,8 +51,8 @@ from .schemas import (
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Schema is owned by Alembic migrations (`alembic upgrade head`), not Base.metadata.create_all.
-    # Startup/shutdown resources (Redis pool, etc.) will be wired here in later PRs.
     yield
+    await close_redis()
 
 
 app = FastAPI(
@@ -240,7 +242,7 @@ async def resend_verification(
     return {"status": "sent"}
 
 
-@app.post("/chat", response_model=ChatResponse)
+@app.post("/chat", response_model=ChatResponse, dependencies=[Depends(rate_limit_chat)])
 async def chat(
     request: ChatRequest,
     current_user: User | None = Depends(get_current_user_optional),

@@ -67,6 +67,13 @@ class Settings(BaseSettings):
     RESEND_API_KEY: str = ""
     EMAIL_FROM: str = "Spiritualized <onboarding@resend.dev>"
 
+    # Rate limiting (Upstash Redis REST). If creds are unset the limiter no-ops (fails open).
+    UPSTASH_REDIS_REST_URL: str = ""
+    UPSTASH_REDIS_REST_TOKEN: str = ""
+    RATE_LIMIT_ENABLED: bool = True
+    CHAT_RATE_LIMIT: int = 20
+    RATE_LIMIT_WINDOW_SECONDS: int = 60
+
     POSTGRES_DSN: str = "postgresql+asyncpg://user:pass@localhost:5432/spiritualized"
     DATABASE_URL: str = ""
     RAILWAY_DATABASE_URL: str = ""
