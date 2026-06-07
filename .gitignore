@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Environment / secrets — NEVER commit real env files. Only the template is tracked.
+.env
+.env.*
+!.env.example
+*.local
+
+# OS / editor
+.DS_Store
+*.swp

@@ -1,11 +1,29 @@
-fastapi
-uvicorn[standard]
-python-dotenv
-openai
-pydantic<2
+# Spiritualized backend — pinned for the 2026 modernized stack (Pydantic v2, OpenAI v1+, Alembic).
+
+fastapi==0.136.3
+uvicorn[standard]==0.49.0
+
+# Config & validation (Pydantic v2 — BaseSettings now lives in the pydantic-settings package).
+pydantic==2.13.4
+pydantic-settings>=2.5,<3
+
+# Database: async SQLAlchemy 2.x + asyncpg driver, schema managed by Alembic migrations.
+SQLAlchemy==2.0.50
+asyncpg==0.31.0
+alembic>=1.13,<2
+
+# Auth.
+# passlib 1.7.4 is unmaintained and breaks on bcrypt >= 4.1 ("password cannot be longer than
+# 72 bytes"), so bcrypt is pinned < 4.1 to keep hashing working. PR3 modernizes this (drop
+# passlib for pwdlib / direct bcrypt).
+passlib[bcrypt]==1.7.4
+bcrypt>=4.0,<4.1
+python-jose[cryptography]==3.5.0
 email-validator
-sqlalchemy
-asyncpg
-motor
-passlib[bcrypt]
-python-jose[cryptography]
+
+# LLM: OpenAI SDK v1+ (AsyncOpenAI client).
+openai==2.41.0
+
+# Deferred (Mongo transcripts — "Mongo later" per Milestone 1 plan). mongo.py is kept but not
+# imported by the active code path; transcripts will move to Postgres JSONB in PR7.
+motor==3.7.1

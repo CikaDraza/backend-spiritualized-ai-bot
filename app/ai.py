@@ -1,14 +1,12 @@
+from __future__ import annotations
+
 from typing import List
 from uuid import uuid4
 
-import openai
+from openai import AsyncOpenAI
 
 from .config import settings
-from .mongo import log_chat_message
 from .schemas import ChatMessage, ChatRequest
-
-
-openai.api_key = settings.OPENAI_API_KEY
 
 
 DEFAULT_SYSTEM_PROMPT = """You are Spiritualized, a warm and mindful bilingual English mentor.
@@ -24,8 +22,19 @@ Always keep tone encouraging, slightly poetic, and deeply human.
 """
 
 
+_client: AsyncOpenAI | None = None
+
+
+def get_client() -> AsyncOpenAI:
+    """Lazily create the AsyncOpenAI client so importing this module never requires a key."""
+    global _client
+    if _client is None:
+        _client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+    return _client
+
+
 def build_openai_messages(history: List[ChatMessage], message: str) -> List[dict]:
-    messages = [
+    messages: List[dict] = [
         {"role": "system", "content": DEFAULT_SYSTEM_PROMPT},
     ]
     for item in history:
@@ -39,25 +48,23 @@ async def generate_spiritual_response(
     user_id: int | None = None,
     session_id: str | None = None,
 ) -> str:
+    # session_id is accepted for forward-compatibility with transcript persistence (PR7).
     session_id = session_id or str(uuid4())
-    await log_chat_message(user_id, session_id, "user", request.message)
 
     if not settings.OPENAI_API_KEY:
-        assistant_result = fallback_response(request.message)
-    else:
-        try:
-            response = await openai.ChatCompletion.acreate(
-                model="gpt-4o-mini",
-                messages=build_openai_messages(request.history, request.message),
-                temperature=0.8,
-                max_tokens=700,
-            )
-            assistant_result = response.choices[0].message.content.strip()
-        except Exception as exc:
-            assistant_result = f"Spiritualized nije mogao da generiše odgovor zbog greške: {exc}"
+        return fallback_response(request.message)
 
-    await log_chat_message(user_id, session_id, "assistant", assistant_result)
-    return assistant_result
+    try:
+        client = get_client()
+        response = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=build_openai_messages(request.history, request.message),
+            temperature=0.8,
+            max_tokens=700,
+        )
+        return (response.choices[0].message.content or "").strip()
+    except Exception as exc:
+        return f"Spiritualized nije mogao da generiše odgovor zbog greške: {exc}"
 
 
 def fallback_response(user_message: str) -> str:

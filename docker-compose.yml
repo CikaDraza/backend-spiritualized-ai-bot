@@ -1,0 +1,37 @@
+# Local development dependencies for Spiritualized backend.
+# Postgres is exposed on 5455 to avoid clashing with host Postgres already on 5432/5433.
+#
+# Usage:
+#   docker compose up -d postgres
+#   export POSTGRES_DSN="postgresql+asyncpg://spirit:spirit@localhost:5455/spiritualized"
+#   alembic upgrade head
+#   uvicorn app.main:app --reload --port 8000
+#
+# Redis is added in PR5 (rate limiting); a commented stub is left below for convenience.
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: spirit_postgres
+    environment:
+      POSTGRES_USER: spirit
+      POSTGRES_PASSWORD: spirit
+      POSTGRES_DB: spiritualized
+    ports:
+      - "5455:5432"
+    volumes:
+      - spirit_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U spirit -d spiritualized"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # redis:                       # PR5 — Upstash is used in prod; this is for local dev parity.
+  #   image: redis:7
+  #   container_name: spirit_redis
+  #   ports:
+  #     - "6379:6379"
+
+volumes:
+  spirit_pg_data:

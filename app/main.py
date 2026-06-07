@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from uuid import uuid4
 
 from fastapi import Depends, FastAPI, Header, HTTPException, status
@@ -7,7 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from .ai import generate_spiritual_response
 from .auth import create_access_token, decode_access_token
 from .crud import authenticate_user, create_user, get_user_by_id, get_user_by_email
-from .database import Base, engine, get_db
+from .database import get_db
 from .models import User
 from .schemas import (
     ChatRequest,
@@ -18,9 +19,18 @@ from .schemas import (
     UserProfile,
 )
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Schema is owned by Alembic migrations (`alembic upgrade head`), not Base.metadata.create_all.
+    # Startup/shutdown resources (Redis pool, etc.) will be wired here in later PRs.
+    yield
+
+
 app = FastAPI(
     title="Spiritualized AI Mentor",
     description="FastAPI backend for the Spiritualized bilingual English mentor bot.",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -29,15 +39,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("startup")
-async def on_startup() -> None:
-    try:
-        async with engine.begin() as conn:
-            await conn.run_sync(Base.metadata.create_all)
-    except Exception as exc:
-        print("WARNING: Database not available on startup:", exc)
 
 
 @app.get("/")

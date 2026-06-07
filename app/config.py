@@ -1,7 +1,10 @@
-from typing import Any, Dict, Optional
+from __future__ import annotations
+
+from typing import Any, Optional
 from urllib.parse import quote_plus, urlsplit, urlunsplit
 
-from pydantic import BaseSettings, root_validator
+from pydantic import model_validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 def normalize_mongodb_uri(uri: str) -> str:
@@ -23,7 +26,26 @@ def normalize_mongodb_uri(uri: str) -> str:
     return urlunsplit((parsed.scheme, safe_netloc, parsed.path, parsed.query, parsed.fragment))
 
 
+def to_asyncpg_dsn(url: str) -> str:
+    """Normalize a Postgres URL to the asyncpg driver form SQLAlchemy expects."""
+    if url.startswith("postgresql+asyncpg://"):
+        return url
+    if url.startswith("postgresql://"):
+        return "postgresql+asyncpg://" + url[len("postgresql://") :]
+    if url.startswith("postgres://"):
+        return "postgresql+asyncpg://" + url[len("postgres://") :]
+    return url
+
+
 class Settings(BaseSettings):
+    # extra="ignore" so unrelated .env keys (APP_NAME, FRONTEND_URL, UPSTASH_*, RESEND_*, ...)
+    # don't raise during config load — they belong to other layers / future PRs.
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
     OPENAI_API_KEY: str = ""
     SECRET_KEY: str = "changeme"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
@@ -37,14 +59,19 @@ class Settings(BaseSettings):
     BACKEND_PORT: int = 8000
     PORT: Optional[int] = None
 
-    @root_validator(pre=True)
-    def resolve_railway_settings(cls, values: Dict[str, Any]) -> Dict[str, Any]:
+    @model_validator(mode="before")
+    @classmethod
+    def resolve_railway_settings(cls, values: Any) -> Any:
+        if not isinstance(values, dict):
+            return values
+
+        # Railway / Neon provide DATABASE_URL; derive the asyncpg DSN when POSTGRES_DSN is unset.
         postgres = values.get("POSTGRES_DSN") or ""
         database_url = values.get("DATABASE_URL") or values.get("RAILWAY_DATABASE_URL") or ""
         if not postgres and database_url:
-            if database_url.startswith("postgres://"):
-                database_url = database_url.replace("postgres://", "postgresql+asyncpg://", 1)
-            values["POSTGRES_DSN"] = database_url
+            values["POSTGRES_DSN"] = to_asyncpg_dsn(database_url)
+        elif postgres:
+            values["POSTGRES_DSN"] = to_asyncpg_dsn(postgres)
 
         mongodb = values.get("MONGODB_URI") or ""
         mongodb_url = values.get("MONGODB_URL") or values.get("RAILWAY_MONGODB_URI") or ""
@@ -59,10 +86,6 @@ class Settings(BaseSettings):
             values["BACKEND_PORT"] = int(port)
 
         return values
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
 
 
 settings = Settings()
