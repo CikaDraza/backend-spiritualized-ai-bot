@@ -2,10 +2,12 @@ from contextlib import asynccontextmanager
 from uuid import uuid4
 
 from fastapi import Cookie, Depends, FastAPI, Header, HTTPException, Response, status
+from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .ai import generate_spiritual_response
+from .constants import MAX_ACTIVE_SCENARIOS, MAX_TEST_SLOTS
 from .auth import (
     clear_auth_cookies,
     create_access_token,
@@ -20,28 +22,44 @@ from .auth import (
 from .config import settings
 from .crud import (
     authenticate_user,
+    count_active_scenarios,
+    count_test_slots,
     create_email_verification_token,
     create_refresh_token,
+    create_scenario,
+    create_test_slot,
     create_user,
+    delete_scenario,
+    delete_test_slot,
     delete_unused_verification_tokens,
     get_email_verification_token,
     get_refresh_token,
+    get_scenario,
+    get_test_slot,
     get_user_by_email,
     get_user_by_id,
     is_refresh_token_valid,
     is_verification_token_usable,
+    list_scenarios,
+    list_test_slots,
     mark_email_verified,
     revoke_all_user_refresh_tokens,
     revoke_refresh_token,
+    update_scenario,
 )
 from .database import get_db
 from .email import send_verification_email
 from .rate_limit import rate_limit_chat
 from .redis_client import close_redis
-from .models import User
+from .models import Scenario, TestSlot, User
 from .schemas import (
     ChatRequest,
     ChatResponse,
+    ScenarioCreate,
+    ScenarioOut,
+    ScenarioUpdate,
+    TestSlotCreate,
+    TestSlotOut,
     UserCreate,
     UserLogin,
     UserProfile,
@@ -257,3 +275,144 @@ async def chat(
         return ChatResponse(assistant=assistant_text)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+# --- Scenarios (tutor feature — require a verified email) --------------------
+async def _scenario_limit_error(db: AsyncSession, user_id: int) -> HTTPException:
+    """409 carrying the current scenarios so the UI can ask which to delete (no FIFO)."""
+    scenarios = await list_scenarios(db, user_id)
+    return HTTPException(
+        status_code=status.HTTP_409_CONFLICT,
+        detail={
+            "error": "scenario_limit_reached",
+            "message": (
+                f"You already have {MAX_ACTIVE_SCENARIOS} active scenarios. "
+                "Delete or deactivate one before creating a new one."
+            ),
+            "limit": MAX_ACTIVE_SCENARIOS,
+            "scenarios": jsonable_encoder(
+                [ScenarioOut.model_validate(s) for s in scenarios]
+            ),
+        },
+    )
+
+
+async def _owned_scenario(
+    scenario_id: int, current_user: User, db: AsyncSession
+) -> Scenario:
+    scenario = await get_scenario(db, scenario_id)
+    if scenario is None or scenario.user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Scenario not found")
+    return scenario
+
+
+@app.get("/scenarios", response_model=list[ScenarioOut])
+async def list_scenarios_endpoint(
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> list[Scenario]:
+    return await list_scenarios(db, current_user.id)
+
+
+@app.post("/scenarios", response_model=ScenarioOut, status_code=status.HTTP_201_CREATED)
+async def create_scenario_endpoint(
+    payload: ScenarioCreate,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> Scenario:
+    if await count_active_scenarios(db, current_user.id) >= MAX_ACTIVE_SCENARIOS:
+        raise await _scenario_limit_error(db, current_user.id)
+    return await create_scenario(db, current_user.id, payload.title, payload.description)
+
+
+@app.patch("/scenarios/{scenario_id}", response_model=ScenarioOut)
+async def update_scenario_endpoint(
+    scenario_id: int,
+    payload: ScenarioUpdate,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> Scenario:
+    scenario = await _owned_scenario(scenario_id, current_user, db)
+    # Reactivating an inactive scenario must still respect the active-scenario limit.
+    if payload.is_active is True and not scenario.is_active:
+        if await count_active_scenarios(db, current_user.id) >= MAX_ACTIVE_SCENARIOS:
+            raise await _scenario_limit_error(db, current_user.id)
+    return await update_scenario(
+        db,
+        scenario,
+        title=payload.title,
+        description=payload.description,
+        is_active=payload.is_active,
+    )
+
+
+@app.delete("/scenarios/{scenario_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_scenario_endpoint(
+    scenario_id: int,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> Response:
+    scenario = await _owned_scenario(scenario_id, current_user, db)
+    await delete_scenario(db, scenario)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+# --- Test slots (tutor feature — require a verified email) -------------------
+async def _test_slot_limit_error(db: AsyncSession, user_id: int) -> HTTPException:
+    slots = await list_test_slots(db, user_id)
+    return HTTPException(
+        status_code=status.HTTP_409_CONFLICT,
+        detail={
+            "error": "test_slot_limit_reached",
+            "message": (
+                f"You already have {MAX_TEST_SLOTS} saved tests. "
+                "Delete one before saving a new test."
+            ),
+            "limit": MAX_TEST_SLOTS,
+            "tests": jsonable_encoder([TestSlotOut.model_validate(s) for s in slots]),
+        },
+    )
+
+
+async def _owned_test_slot(
+    test_id: int, current_user: User, db: AsyncSession
+) -> TestSlot:
+    slot = await get_test_slot(db, test_id)
+    if slot is None or slot.user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Test not found")
+    return slot
+
+
+@app.get("/tests", response_model=list[TestSlotOut])
+async def list_tests_endpoint(
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> list[TestSlot]:
+    return await list_test_slots(db, current_user.id)
+
+
+@app.post("/tests", response_model=TestSlotOut, status_code=status.HTTP_201_CREATED)
+async def create_test_endpoint(
+    payload: TestSlotCreate,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> TestSlot:
+    if await count_test_slots(db, current_user.id) >= MAX_TEST_SLOTS:
+        raise await _test_slot_limit_error(db, current_user.id)
+    # A scenario_id, when provided, must belong to the caller.
+    if payload.scenario_id is not None:
+        await _owned_scenario(payload.scenario_id, current_user, db)
+    return await create_test_slot(
+        db, current_user.id, payload.title, payload.scenario_id, payload.payload
+    )
+
+
+@app.delete("/tests/{test_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_test_endpoint(
+    test_id: int,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> Response:
+    slot = await _owned_test_slot(test_id, current_user, db)
+    await delete_test_slot(db, slot)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

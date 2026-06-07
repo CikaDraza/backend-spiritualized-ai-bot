@@ -1,10 +1,11 @@
 from datetime import datetime, timezone
+from typing import Any, Optional
 
-from sqlalchemy import delete, select, update
+from sqlalchemy import delete, func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .auth import get_password_hash, verify_password
-from .models import EmailVerificationToken, RefreshToken, User
+from .models import EmailVerificationToken, RefreshToken, Scenario, TestSlot, User
 from .schemas import UserCreate
 
 
@@ -129,3 +130,103 @@ async def mark_email_verified(
         user.is_verified = True
     await db.commit()
     return user
+
+
+# --- Scenarios --------------------------------------------------------------
+async def list_scenarios(db: AsyncSession, user_id: int) -> list[Scenario]:
+    result = await db.execute(
+        select(Scenario)
+        .where(Scenario.user_id == user_id)
+        .order_by(Scenario.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def count_active_scenarios(db: AsyncSession, user_id: int) -> int:
+    result = await db.execute(
+        select(func.count())
+        .select_from(Scenario)
+        .where(Scenario.user_id == user_id, Scenario.is_active.is_(True))
+    )
+    return int(result.scalar_one())
+
+
+async def get_scenario(db: AsyncSession, scenario_id: int) -> Scenario | None:
+    result = await db.execute(select(Scenario).where(Scenario.id == scenario_id))
+    return result.scalars().first()
+
+
+async def create_scenario(
+    db: AsyncSession, user_id: int, title: str, description: Optional[str]
+) -> Scenario:
+    scenario = Scenario(user_id=user_id, title=title, description=description)
+    db.add(scenario)
+    await db.commit()
+    await db.refresh(scenario)
+    return scenario
+
+
+async def update_scenario(
+    db: AsyncSession,
+    scenario: Scenario,
+    title: Optional[str] = None,
+    description: Optional[str] = None,
+    is_active: Optional[bool] = None,
+) -> Scenario:
+    if title is not None:
+        scenario.title = title
+    if description is not None:
+        scenario.description = description
+    if is_active is not None:
+        scenario.is_active = is_active
+    await db.commit()
+    await db.refresh(scenario)
+    return scenario
+
+
+async def delete_scenario(db: AsyncSession, scenario: Scenario) -> None:
+    await db.delete(scenario)
+    await db.commit()
+
+
+# --- Test slots -------------------------------------------------------------
+async def list_test_slots(db: AsyncSession, user_id: int) -> list[TestSlot]:
+    result = await db.execute(
+        select(TestSlot)
+        .where(TestSlot.user_id == user_id)
+        .order_by(TestSlot.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def count_test_slots(db: AsyncSession, user_id: int) -> int:
+    result = await db.execute(
+        select(func.count()).select_from(TestSlot).where(TestSlot.user_id == user_id)
+    )
+    return int(result.scalar_one())
+
+
+async def get_test_slot(db: AsyncSession, test_id: int) -> TestSlot | None:
+    result = await db.execute(select(TestSlot).where(TestSlot.id == test_id))
+    return result.scalars().first()
+
+
+async def create_test_slot(
+    db: AsyncSession,
+    user_id: int,
+    title: str,
+    scenario_id: Optional[int],
+    payload: dict[str, Any],
+) -> TestSlot:
+    slot = TestSlot(
+        user_id=user_id, title=title, scenario_id=scenario_id, payload=payload
+    )
+    db.add(slot)
+    await db.commit()
+    await db.refresh(slot)
+    return slot
+
+
+async def delete_test_slot(db: AsyncSession, slot: TestSlot) -> None:
+    await db.delete(slot)
+    await db.commit()
