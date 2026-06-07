@@ -43,23 +43,30 @@ from .crud import (
     list_scenarios,
     list_test_slots,
     mark_email_verified,
+    mistakes_summary,
     revoke_all_user_refresh_tokens,
     revoke_refresh_token,
     update_scenario,
 )
 from .database import get_db
 from .email import send_verification_email
+from .agents import list_personas
+from .orchestrator import run_turn
 from .rate_limit import rate_limit_chat
 from .redis_client import close_redis
 from .models import Scenario, TestSlot, User
 from .schemas import (
     ChatRequest,
     ChatResponse,
+    PersonaOut,
+    ProgressItem,
     ScenarioCreate,
     ScenarioOut,
     ScenarioUpdate,
     TestSlotCreate,
     TestSlotOut,
+    TutorTurnRequest,
+    TutorTurnResponse,
     UserCreate,
     UserLogin,
     UserProfile,
@@ -416,3 +423,48 @@ async def delete_test_endpoint(
     slot = await _owned_test_slot(test_id, current_user, db)
     await delete_test_slot(db, slot)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+# --- Tutor orchestrator (multi-agent) ---------------------------------------
+@app.get("/tutor/personas", response_model=list[PersonaOut])
+async def tutor_personas() -> list[PersonaOut]:
+    return [
+        PersonaOut(slug=p.slug, name=p.name, avatar=p.avatar, tone=p.tone)
+        for p in list_personas()
+    ]
+
+
+@app.post(
+    "/tutor/turn",
+    response_model=TutorTurnResponse,
+    dependencies=[Depends(rate_limit_chat)],
+)
+async def tutor_turn(
+    payload: TutorTurnRequest,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> TutorTurnResponse:
+    if payload.scenario_id is not None:
+        await _owned_scenario(payload.scenario_id, current_user, db)
+    session_id = payload.session_id or str(uuid4())
+    try:
+        return await run_turn(
+            db,
+            current_user,
+            payload.message,
+            payload.history,
+            session_id,
+            payload.persona,
+            payload.scenario_id,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/tutor/progress", response_model=list[ProgressItem])
+async def tutor_progress(
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> list[ProgressItem]:
+    summary = await mistakes_summary(db, current_user.id)
+    return [ProgressItem(category=cat, count=count) for cat, count in summary]

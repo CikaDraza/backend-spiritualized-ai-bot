@@ -3,6 +3,8 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
+from .models import LinguisticCategory
+
 
 class ChatMessage(BaseModel):
     role: str
@@ -81,3 +83,44 @@ class TestSlotOut(BaseModel):
     scenario_id: Optional[int] = None
     payload: Dict[str, Any] = Field(default_factory=dict)
     created_at: Optional[datetime] = None
+
+
+# --- Orchestrator / tutor ---------------------------------------------------
+class MistakeItem(BaseModel):
+    """One learner mistake, bucketed by linguistic pillar. Explanation is in Serbian."""
+
+    category: LinguisticCategory
+    original: str = ""
+    correction: str = ""
+    explanation: str = ""
+
+
+class ErrorAnalysis(BaseModel):
+    mistakes: List[MistakeItem] = []
+
+
+class PersonaOut(BaseModel):
+    slug: str
+    name: str
+    avatar: str
+    tone: str
+
+
+class TutorTurnRequest(BaseModel):
+    message: str
+    history: List[ChatMessage] = []
+    session_id: Optional[str] = None
+    persona: Optional[str] = None
+    scenario_id: Optional[int] = None
+
+
+class TutorTurnResponse(BaseModel):
+    assistant: str
+    persona: str
+    session_id: str
+    mistakes: List[MistakeItem] = []
+
+
+class ProgressItem(BaseModel):
+    category: LinguisticCategory
+    count: int
