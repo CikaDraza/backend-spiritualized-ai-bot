@@ -68,6 +68,17 @@ def refresh_token_expiry() -> datetime:
     return datetime.now(timezone.utc) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
 
 
+# --- Email verification tokens (opaque, stored hashed) ----------------------
+def generate_verification_token() -> str:
+    return secrets.token_urlsafe(32)
+
+
+def email_verification_expiry() -> datetime:
+    return datetime.now(timezone.utc) + timedelta(
+        hours=settings.EMAIL_VERIFICATION_EXPIRE_HOURS
+    )
+
+
 # --- Cookies ----------------------------------------------------------------
 def set_auth_cookies(response: Response, access_token: str, refresh_token: str) -> None:
     response.set_cookie(

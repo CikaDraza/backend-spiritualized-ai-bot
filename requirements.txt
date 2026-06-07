@@ -20,6 +20,9 @@ email-validator
 # LLM: OpenAI SDK v1+ (AsyncOpenAI client).
 openai==2.41.0
 
+# Transactional email (PR4: verification). Falls back to logging the link when unconfigured.
+resend>=2.0
+
 # Deferred (Mongo transcripts — "Mongo later" per Milestone 1 plan). mongo.py is kept but not
 # imported by the active code path; transcripts will move to Postgres JSONB in PR7.
 motor==3.7.1

@@ -57,9 +57,15 @@ class Settings(BaseSettings):
     # CORS / cookies. In prod (cross-site Vercel<->Railway) set COOKIE_SECURE=true and
     # COOKIE_SAMESITE=none; locally (same-site localhost) the lax/insecure defaults work.
     FRONTEND_URL: str = "http://localhost:3016"
+    BACKEND_URL: str = "http://localhost:8000"
     COOKIE_SECURE: bool = False
     COOKIE_SAMESITE: str = "lax"
     COOKIE_DOMAIN: Optional[str] = None
+
+    # Email (Resend). When unset/placeholder, email.py logs the verification link instead of
+    # sending (dev-fallback until the custom domain + DNS are ready).
+    RESEND_API_KEY: str = ""
+    EMAIL_FROM: str = "Spiritualized <onboarding@resend.dev>"
 
     POSTGRES_DSN: str = "postgresql+asyncpg://user:pass@localhost:5432/spiritualized"
     DATABASE_URL: str = ""
