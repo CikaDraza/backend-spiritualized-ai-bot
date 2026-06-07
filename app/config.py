@@ -48,7 +48,19 @@ class Settings(BaseSettings):
 
     OPENAI_API_KEY: str = ""
     SECRET_KEY: str = "changeme"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+
+    # Auth token lifetimes. Access is short-lived (JWT); refresh is long-lived (opaque, in DB).
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 30
+    EMAIL_VERIFICATION_EXPIRE_HOURS: int = 24
+
+    # CORS / cookies. In prod (cross-site Vercel<->Railway) set COOKIE_SECURE=true and
+    # COOKIE_SAMESITE=none; locally (same-site localhost) the lax/insecure defaults work.
+    FRONTEND_URL: str = "http://localhost:3016"
+    COOKIE_SECURE: bool = False
+    COOKIE_SAMESITE: str = "lax"
+    COOKIE_DOMAIN: Optional[str] = None
+
     POSTGRES_DSN: str = "postgresql+asyncpg://user:pass@localhost:5432/spiritualized"
     DATABASE_URL: str = ""
     RAILWAY_DATABASE_URL: str = ""
