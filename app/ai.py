@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from typing import List
+from typing import List, cast
 from uuid import uuid4
 
 from openai import AsyncOpenAI
+from openai.types.chat import ChatCompletionMessageParam
 
 from .config import settings
 from .schemas import ChatMessage, ChatRequest
@@ -33,14 +34,16 @@ def get_client() -> AsyncOpenAI:
     return _client
 
 
-def build_openai_messages(history: List[ChatMessage], message: str) -> List[dict]:
+def build_openai_messages(
+    history: List[ChatMessage], message: str
+) -> List[ChatCompletionMessageParam]:
     messages: List[dict] = [
         {"role": "system", "content": DEFAULT_SYSTEM_PROMPT},
     ]
     for item in history:
         messages.append({"role": item.role, "content": item.content})
     messages.append({"role": "user", "content": message})
-    return messages
+    return cast(List[ChatCompletionMessageParam], messages)
 
 
 async def generate_spiritual_response(

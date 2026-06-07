@@ -1,19 +1,18 @@
 import enum
 from datetime import datetime, timezone
+from typing import Any, Optional
 
 from sqlalchemy import (
     Boolean,
-    Column,
     DateTime,
     Enum,
     ForeignKey,
-    Integer,
     String,
     Text,
     text,
 )
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .database import Base
 
@@ -35,36 +34,38 @@ class LinguisticCategory(str, enum.Enum):
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    email = Column(String(320), unique=True, index=True, nullable=False)
-    hashed_password = Column(String(256), nullable=False)
-    full_name = Column(String(128), nullable=True)
-    is_active = Column(Boolean, default=True)
-    is_verified = Column(
-        Boolean, default=False, nullable=False, server_default=text("false")
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    email: Mapped[str] = mapped_column(String(320), unique=True, index=True)
+    hashed_password: Mapped[str] = mapped_column(String(256))
+    full_name: Mapped[Optional[str]] = mapped_column(String(128))
+    is_active: Mapped[Optional[bool]] = mapped_column(Boolean, default=True)
+    is_verified: Mapped[bool] = mapped_column(
+        Boolean, default=False, server_default=text("false")
     )
-    created_at = Column(DateTime(timezone=True), default=utcnow)
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
 
-    scenarios = relationship(
-        "Scenario", back_populates="owner", cascade="all, delete-orphan"
+    scenarios: Mapped[list["Scenario"]] = relationship(
+        back_populates="owner", cascade="all, delete-orphan"
     )
-    chat_sessions = relationship(
-        "ChatSession", back_populates="owner", cascade="all, delete-orphan"
+    chat_sessions: Mapped[list["ChatSession"]] = relationship(
+        back_populates="owner", cascade="all, delete-orphan"
     )
-    refresh_tokens = relationship(
-        "RefreshToken", back_populates="user", cascade="all, delete-orphan"
+    refresh_tokens: Mapped[list["RefreshToken"]] = relationship(
+        back_populates="user", cascade="all, delete-orphan"
     )
-    email_verification_tokens = relationship(
-        "EmailVerificationToken", back_populates="user", cascade="all, delete-orphan"
+    email_verification_tokens: Mapped[list["EmailVerificationToken"]] = relationship(
+        back_populates="user", cascade="all, delete-orphan"
     )
-    test_slots = relationship(
-        "TestSlot", back_populates="owner", cascade="all, delete-orphan"
+    test_slots: Mapped[list["TestSlot"]] = relationship(
+        back_populates="owner", cascade="all, delete-orphan"
     )
-    transcripts = relationship(
-        "Transcript", back_populates="owner", cascade="all, delete-orphan"
+    transcripts: Mapped[list["Transcript"]] = relationship(
+        back_populates="owner", cascade="all, delete-orphan"
     )
-    mistakes = relationship(
-        "Mistake", back_populates="user", cascade="all, delete-orphan"
+    mistakes: Mapped[list["Mistake"]] = relationship(
+        back_populates="user", cascade="all, delete-orphan"
     )
 
 
@@ -73,18 +74,20 @@ class RefreshToken(Base):
 
     __tablename__ = "refresh_tokens"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    token_hash = Column(String(128), unique=True, index=True, nullable=False)
-    expires_at = Column(DateTime(timezone=True), nullable=False)
-    revoked = Column(
-        Boolean, default=False, nullable=False, server_default=text("false")
+    token_hash: Mapped[str] = mapped_column(String(128), unique=True, index=True)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    revoked: Mapped[bool] = mapped_column(
+        Boolean, default=False, server_default=text("false")
     )
-    created_at = Column(DateTime(timezone=True), default=utcnow)
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
 
-    user = relationship("User", back_populates="refresh_tokens")
+    user: Mapped["User"] = relationship(back_populates="refresh_tokens")
 
 
 class EmailVerificationToken(Base):
@@ -92,16 +95,18 @@ class EmailVerificationToken(Base):
 
     __tablename__ = "email_verification_tokens"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    token_hash = Column(String(128), unique=True, index=True, nullable=False)
-    expires_at = Column(DateTime(timezone=True), nullable=False)
-    used_at = Column(DateTime(timezone=True), nullable=True)
-    created_at = Column(DateTime(timezone=True), default=utcnow)
+    token_hash: Mapped[str] = mapped_column(String(128), unique=True, index=True)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    used_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
 
-    user = relationship("User", back_populates="email_verification_tokens")
+    user: Mapped["User"] = relationship(back_populates="email_verification_tokens")
 
 
 class Scenario(Base):
@@ -111,21 +116,25 @@ class Scenario(Base):
 
     __tablename__ = "scenarios"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    title = Column(String(128), nullable=False)
-    description = Column(Text, nullable=True)
-    is_active = Column(
-        Boolean, default=True, nullable=False, server_default=text("true")
+    title: Mapped[str] = mapped_column(String(128))
+    description: Mapped[Optional[str]] = mapped_column(Text)
+    is_active: Mapped[bool] = mapped_column(
+        Boolean, default=True, server_default=text("true")
     )
-    created_at = Column(DateTime(timezone=True), default=utcnow)
-    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
 
-    owner = relationship("User", back_populates="scenarios")
-    test_slots = relationship("TestSlot", back_populates="scenario")
-    transcripts = relationship("Transcript", back_populates="scenario")
+    owner: Mapped["User"] = relationship(back_populates="scenarios")
+    test_slots: Mapped[list["TestSlot"]] = relationship(back_populates="scenario")
+    transcripts: Mapped[list["Transcript"]] = relationship(back_populates="scenario")
 
 
 class TestSlot(Base):
@@ -133,32 +142,40 @@ class TestSlot(Base):
 
     __tablename__ = "test_slots"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    scenario_id = Column(
-        Integer, ForeignKey("scenarios.id", ondelete="SET NULL"), nullable=True, index=True
+    scenario_id: Mapped[Optional[int]] = mapped_column(
+        ForeignKey("scenarios.id", ondelete="SET NULL"), index=True
     )
-    title = Column(String(128), nullable=False)
-    payload = Column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
-    created_at = Column(DateTime(timezone=True), default=utcnow)
+    title: Mapped[str] = mapped_column(String(128))
+    payload: Mapped[dict[str, Any]] = mapped_column(
+        JSONB, server_default=text("'{}'::jsonb")
+    )
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
 
-    owner = relationship("User", back_populates="test_slots")
-    scenario = relationship("Scenario", back_populates="test_slots")
+    owner: Mapped["User"] = relationship(back_populates="test_slots")
+    scenario: Mapped[Optional["Scenario"]] = relationship(back_populates="test_slots")
 
 
 class ChatSession(Base):
     __tablename__ = "chat_sessions"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-    session_name = Column(String(128), nullable=True)
-    current_topic = Column(String(256), nullable=True)
-    created_at = Column(DateTime(timezone=True), default=utcnow)
-    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    session_name: Mapped[Optional[str]] = mapped_column(String(128))
+    current_topic: Mapped[Optional[str]] = mapped_column(String(256))
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
 
-    owner = relationship("User", back_populates="chat_sessions")
+    owner: Mapped["User"] = relationship(back_populates="chat_sessions")
 
 
 class Transcript(Base):
@@ -167,21 +184,27 @@ class Transcript(Base):
 
     __tablename__ = "transcripts"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    scenario_id = Column(
-        Integer, ForeignKey("scenarios.id", ondelete="SET NULL"), nullable=True, index=True
+    scenario_id: Mapped[Optional[int]] = mapped_column(
+        ForeignKey("scenarios.id", ondelete="SET NULL"), index=True
     )
-    session_id = Column(String(64), nullable=False, index=True)
-    messages = Column(JSONB, nullable=False, server_default=text("'[]'::jsonb"))
-    created_at = Column(DateTime(timezone=True), default=utcnow)
-    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
+    session_id: Mapped[str] = mapped_column(String(64), index=True)
+    messages: Mapped[list[dict[str, Any]]] = mapped_column(
+        JSONB, server_default=text("'[]'::jsonb")
+    )
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
 
-    owner = relationship("User", back_populates="transcripts")
-    scenario = relationship("Scenario", back_populates="transcripts")
-    mistakes = relationship("Mistake", back_populates="transcript")
+    owner: Mapped["User"] = relationship(back_populates="transcripts")
+    scenario: Mapped[Optional["Scenario"]] = relationship(back_populates="transcripts")
+    mistakes: Mapped[list["Mistake"]] = relationship(back_populates="transcript")
 
 
 class Mistake(Base):
@@ -189,21 +212,23 @@ class Mistake(Base):
 
     __tablename__ = "mistakes"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    transcript_id = Column(
-        Integer, ForeignKey("transcripts.id", ondelete="SET NULL"), nullable=True, index=True
+    transcript_id: Mapped[Optional[int]] = mapped_column(
+        ForeignKey("transcripts.id", ondelete="SET NULL"), index=True
     )
-    session_id = Column(String(64), nullable=True, index=True)
-    category = Column(
-        Enum(LinguisticCategory, name="linguistic_category"), nullable=False, index=True
+    session_id: Mapped[Optional[str]] = mapped_column(String(64), index=True)
+    category: Mapped[LinguisticCategory] = mapped_column(
+        Enum(LinguisticCategory, name="linguistic_category"), index=True
     )
-    original = Column(Text, nullable=True)
-    correction = Column(Text, nullable=True)
-    explanation = Column(Text, nullable=True)
-    created_at = Column(DateTime(timezone=True), default=utcnow)
+    original: Mapped[Optional[str]] = mapped_column(Text)
+    correction: Mapped[Optional[str]] = mapped_column(Text)
+    explanation: Mapped[Optional[str]] = mapped_column(Text)
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
 
-    user = relationship("User", back_populates="mistakes")
-    transcript = relationship("Transcript", back_populates="mistakes")
+    user: Mapped["User"] = relationship(back_populates="mistakes")
+    transcript: Mapped[Optional["Transcript"]] = relationship(back_populates="mistakes")

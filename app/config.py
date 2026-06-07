@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any, Literal, Optional
 from urllib.parse import quote_plus, urlsplit, urlunsplit
 
 from pydantic import model_validator
@@ -59,7 +59,7 @@ class Settings(BaseSettings):
     FRONTEND_URL: str = "http://localhost:3016"
     BACKEND_URL: str = "http://localhost:8000"
     COOKIE_SECURE: bool = False
-    COOKIE_SAMESITE: str = "lax"
+    COOKIE_SAMESITE: Literal["lax", "strict", "none"] = "lax"
     COOKIE_DOMAIN: Optional[str] = None
 
     # Email (Resend). When unset/placeholder, email.py logs the verification link instead of

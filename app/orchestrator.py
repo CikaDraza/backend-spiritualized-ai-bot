@@ -14,8 +14,9 @@ from __future__ import annotations
 
 import logging
 from datetime import datetime, timezone
-from typing import List
+from typing import List, cast
 
+from openai.types.chat import ChatCompletionMessageParam
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .agents import Persona, get_persona
@@ -42,7 +43,9 @@ def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def _conversation_messages(persona: Persona, history: List[ChatMessage], message: str) -> list[dict]:
+def _conversation_messages(
+    persona: Persona, history: List[ChatMessage], message: str
+) -> List[ChatCompletionMessageParam]:
     system = (
         f"{DEFAULT_SYSTEM_PROMPT}\n\n"
         f"You are speaking as the persona '{persona.name}'. Tone: {persona.tone}. "
@@ -52,7 +55,7 @@ def _conversation_messages(persona: Persona, history: List[ChatMessage], message
     for item in history:
         messages.append({"role": item.role, "content": item.content})
     messages.append({"role": "user", "content": message})
-    return messages
+    return cast(List[ChatCompletionMessageParam], messages)
 
 
 async def _conversation(persona: Persona, history: List[ChatMessage], message: str) -> str:
@@ -74,12 +77,16 @@ async def _analyze(message: str) -> ErrorAnalysis:
     if not settings.OPENAI_API_KEY:
         return ErrorAnalysis()
     try:
-        response = await get_client().chat.completions.create(
-            model=MODEL,
-            messages=[
+        analyst_messages = cast(
+            List[ChatCompletionMessageParam],
+            [
                 {"role": "system", "content": ANALYST_PROMPT},
                 {"role": "user", "content": message},
             ],
+        )
+        response = await get_client().chat.completions.create(
+            model=MODEL,
+            messages=analyst_messages,
             temperature=0,
             response_format={"type": "json_object"},
         )
