@@ -71,6 +71,7 @@ class Settings(BaseSettings):
     # email-validator rejects them.
     ADMIN_EMAIL: str = "admin@spiritualized.app"
     ADMIN_PASSWORD: str = "change-me-admin"
+    SEED_ADMIN_NAME: str = "Admin"
 
     # Rate limiting (Upstash Redis REST). If creds are unset the limiter no-ops (fails open).
     UPSTASH_REDIS_REST_URL: str = ""
