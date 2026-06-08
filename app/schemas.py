@@ -43,6 +43,7 @@ class UserProfile(BaseModel):
     full_name: Optional[str] = None
     is_active: bool
     is_verified: bool = False
+    role: str = "client"
 
 
 # --- Scenarios --------------------------------------------------------------

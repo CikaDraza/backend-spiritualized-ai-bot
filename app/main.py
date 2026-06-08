@@ -54,7 +54,7 @@ from .agents import list_personas
 from .orchestrator import run_turn
 from .rate_limit import rate_limit_chat
 from .redis_client import close_redis
-from .models import Scenario, TestSlot, User
+from .models import Role, Scenario, TestSlot, User
 from .schemas import (
     ChatRequest,
     ChatResponse,
@@ -102,6 +102,7 @@ def _profile(user: User) -> UserProfile:
         full_name=user.full_name,
         is_active=bool(user.is_active),
         is_verified=user.is_verified,
+        role=user.role.value,
     )
 
 
@@ -168,6 +169,16 @@ async def get_verified_user(current_user: User = Depends(get_current_user)) -> U
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Email not verified. Check your inbox or resend the verification link.",
+        )
+    return current_user
+
+
+async def get_admin_user(current_user: User = Depends(get_current_user)) -> User:
+    """Gate for admin-only management endpoints (scenarios/lessons/personas/users)."""
+    if current_user.role != Role.admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin access required.",
         )
     return current_user
 

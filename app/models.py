@@ -22,6 +22,13 @@ def utcnow() -> datetime:
     return datetime.now(timezone.utc)
 
 
+class Role(str, enum.Enum):
+    """User role: clients learn; admins manage global scenarios/lessons/personas."""
+
+    client = "client"
+    admin = "admin"
+
+
 class LinguisticCategory(str, enum.Enum):
     """The four linguistic pillars (GUIDE.md) used to bucket learner mistakes."""
 
@@ -41,6 +48,12 @@ class User(Base):
     is_active: Mapped[Optional[bool]] = mapped_column(Boolean, default=True)
     is_verified: Mapped[bool] = mapped_column(
         Boolean, default=False, server_default=text("false")
+    )
+    role: Mapped[Role] = mapped_column(
+        Enum(Role, name="user_role"),
+        default=Role.client,
+        server_default="client",
+        index=True,
     )
     created_at: Mapped[Optional[datetime]] = mapped_column(
         DateTime(timezone=True), default=utcnow
