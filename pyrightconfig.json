@@ -1,7 +1,7 @@
 {
-  "include": ["app", "alembic"],
-  "exclude": ["**/__pycache__", ".venv"],
-  "typeCheckingMode": "standard",
+  "include": ["app"],
+  "exclude": ["**/__pycache__", ".venv", "app/mongo.py"],
+  "typeCheckingMode": "strict",
   "pythonVersion": "3.10",
   "venvPath": "..",
   "venv": ".venv"

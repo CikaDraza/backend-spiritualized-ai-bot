@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
@@ -70,7 +70,7 @@ class SpaceOut(BaseModel):
 class TestSlotCreate(BaseModel):
     title: str = Field(min_length=1, max_length=128)
     scenario_id: Optional[int] = None
-    payload: Dict[str, Any] = Field(default_factory=dict)
+    payload: Dict[str, object] = Field(default_factory=dict)
 
 
 class TestSlotOut(BaseModel):
@@ -79,7 +79,7 @@ class TestSlotOut(BaseModel):
     id: int
     title: str
     scenario_id: Optional[int] = None
-    payload: Dict[str, Any] = Field(default_factory=dict)
+    payload: Dict[str, object] = Field(default_factory=dict)
     created_at: Optional[datetime] = None
 
 

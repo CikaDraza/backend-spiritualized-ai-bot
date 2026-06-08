@@ -3,7 +3,6 @@ from __future__ import annotations
 import hashlib
 import secrets
 from datetime import datetime, timedelta, timezone
-from typing import Any
 
 from fastapi import Response
 from jose import JWTError, jwt
@@ -37,7 +36,7 @@ def get_password_hash(password: str) -> str:
 
 
 # --- Access tokens (JWT) ----------------------------------------------------
-def create_access_token(data: dict[str, Any], expires_delta: timedelta | None = None) -> str:
+def create_access_token(data: dict[str, object], expires_delta: timedelta | None = None) -> str:
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + (
         expires_delta or timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)

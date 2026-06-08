@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Literal, Optional
+from typing import Literal, Optional, cast
 from urllib.parse import quote_plus, urlsplit, urlunsplit
 
 from pydantic import model_validator
@@ -92,31 +92,33 @@ class Settings(BaseSettings):
 
     @model_validator(mode="before")
     @classmethod
-    def resolve_railway_settings(cls, values: Any) -> Any:
+    def resolve_railway_settings(cls, values: object) -> object:
         if not isinstance(values, dict):
             return values
+        data = cast(dict[str, object], values)
 
         # Railway / Neon provide DATABASE_URL; derive the asyncpg DSN when POSTGRES_DSN is unset.
-        postgres = values.get("POSTGRES_DSN") or ""
-        database_url = values.get("DATABASE_URL") or values.get("RAILWAY_DATABASE_URL") or ""
+        postgres = str(data.get("POSTGRES_DSN") or "")
+        database_url = str(data.get("DATABASE_URL") or data.get("RAILWAY_DATABASE_URL") or "")
         if not postgres and database_url:
-            values["POSTGRES_DSN"] = to_asyncpg_dsn(database_url)
+            data["POSTGRES_DSN"] = to_asyncpg_dsn(database_url)
         elif postgres:
-            values["POSTGRES_DSN"] = to_asyncpg_dsn(postgres)
+            data["POSTGRES_DSN"] = to_asyncpg_dsn(postgres)
 
-        mongodb = values.get("MONGODB_URI") or ""
-        mongodb_url = values.get("MONGODB_URL") or values.get("RAILWAY_MONGODB_URI") or ""
+        mongodb = str(data.get("MONGODB_URI") or "")
+        mongodb_url = str(data.get("MONGODB_URL") or data.get("RAILWAY_MONGODB_URI") or "")
         if not mongodb and mongodb_url:
-            values["MONGODB_URI"] = mongodb_url
+            data["MONGODB_URI"] = mongodb_url
 
-        if values.get("MONGODB_URI"):
-            values["MONGODB_URI"] = normalize_mongodb_uri(values["MONGODB_URI"])
+        mongodb_uri = data.get("MONGODB_URI")
+        if mongodb_uri:
+            data["MONGODB_URI"] = normalize_mongodb_uri(str(mongodb_uri))
 
-        port = values.get("PORT")
+        port = data.get("PORT")
         if port:
-            values["BACKEND_PORT"] = int(port)
+            data["BACKEND_PORT"] = int(str(port))
 
-        return values
+        return data
 
 
 settings = Settings()

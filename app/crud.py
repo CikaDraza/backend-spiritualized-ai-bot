@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from typing import Any, Optional
+from typing import Optional
 
 from sqlalchemy import delete, func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -53,9 +53,9 @@ def is_refresh_token_valid(token: RefreshToken) -> bool:
     if token.revoked:
         return False
     expires_at = token.expires_at
-    if expires_at is not None and expires_at.tzinfo is None:
+    if expires_at.tzinfo is None:
         expires_at = expires_at.replace(tzinfo=timezone.utc)
-    return expires_at is None or expires_at > datetime.now(timezone.utc)
+    return expires_at > datetime.now(timezone.utc)
 
 
 async def create_refresh_token(
@@ -93,9 +93,9 @@ def is_verification_token_usable(token: EmailVerificationToken) -> bool:
     if token.used_at is not None:
         return False
     expires_at = token.expires_at
-    if expires_at is not None and expires_at.tzinfo is None:
+    if expires_at.tzinfo is None:
         expires_at = expires_at.replace(tzinfo=timezone.utc)
-    return expires_at is None or expires_at > datetime.now(timezone.utc)
+    return expires_at > datetime.now(timezone.utc)
 
 
 async def delete_unused_verification_tokens(db: AsyncSession, user_id: int) -> None:
@@ -225,7 +225,7 @@ async def create_test_slot(
     user_id: int,
     title: str,
     scenario_id: Optional[int],
-    payload: dict[str, Any],
+    payload: dict[str, object],
 ) -> TestSlot:
     slot = TestSlot(
         user_id=user_id, title=title, scenario_id=scenario_id, payload=payload
@@ -262,7 +262,7 @@ async def get_or_create_transcript(
 
 
 async def append_transcript_messages(
-    db: AsyncSession, transcript: Transcript, new_messages: list[dict[str, Any]]
+    db: AsyncSession, transcript: Transcript, new_messages: list[dict[str, object]]
 ) -> Transcript:
     # Reassign (not in-place mutate) so SQLAlchemy detects the JSONB change.
     transcript.messages = list(transcript.messages or []) + new_messages
