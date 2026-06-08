@@ -1,13 +1,26 @@
 from __future__ import annotations
 
-from typing import List, cast
 from uuid import uuid4
 
 from openai import AsyncOpenAI
-from openai.types.chat import ChatCompletionMessageParam
+from openai.types.chat import (
+    ChatCompletionAssistantMessageParam,
+    ChatCompletionMessageParam,
+    ChatCompletionSystemMessageParam,
+    ChatCompletionUserMessageParam,
+)
 
 from .config import settings
 from .schemas import ChatMessage, ChatRequest
+
+
+def to_openai_message(role: str, content: str) -> ChatCompletionMessageParam:
+    """Map a (role, content) pair to the correct typed OpenAI message param."""
+    if role == "assistant":
+        return ChatCompletionAssistantMessageParam(role="assistant", content=content)
+    if role == "system":
+        return ChatCompletionSystemMessageParam(role="system", content=content)
+    return ChatCompletionUserMessageParam(role="user", content=content)
 
 
 DEFAULT_SYSTEM_PROMPT = """You are Spiritualized, a warm and mindful bilingual English mentor.
@@ -35,15 +48,15 @@ def get_client() -> AsyncOpenAI:
 
 
 def build_openai_messages(
-    history: List[ChatMessage], message: str
-) -> List[ChatCompletionMessageParam]:
-    messages: List[dict] = [
-        {"role": "system", "content": DEFAULT_SYSTEM_PROMPT},
+    history: list[ChatMessage], message: str
+) -> list[ChatCompletionMessageParam]:
+    messages: list[ChatCompletionMessageParam] = [
+        ChatCompletionSystemMessageParam(role="system", content=DEFAULT_SYSTEM_PROMPT)
     ]
     for item in history:
-        messages.append({"role": item.role, "content": item.content})
-    messages.append({"role": "user", "content": message})
-    return cast(List[ChatCompletionMessageParam], messages)
+        messages.append(to_openai_message(item.role, item.content))
+    messages.append(ChatCompletionUserMessageParam(role="user", content=message))
+    return messages
 
 
 async def generate_spiritual_response(

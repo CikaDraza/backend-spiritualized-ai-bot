@@ -1,6 +1,6 @@
 import enum
 from datetime import datetime, timezone
-from typing import Any, Optional
+from typing import Optional
 
 from sqlalchemy import (
     Boolean,
@@ -192,7 +192,7 @@ class TestSlot(Base):
         ForeignKey("learning_spaces.id", ondelete="SET NULL"), index=True
     )
     title: Mapped[str] = mapped_column(String(128))
-    payload: Mapped[dict[str, Any]] = mapped_column(
+    payload: Mapped[dict[str, object]] = mapped_column(
         JSONB, server_default=text("'{}'::jsonb")
     )
     created_at: Mapped[Optional[datetime]] = mapped_column(
@@ -235,7 +235,7 @@ class Transcript(Base):
         ForeignKey("learning_spaces.id", ondelete="SET NULL"), index=True
     )
     session_id: Mapped[str] = mapped_column(String(64), index=True)
-    messages: Mapped[list[dict[str, Any]]] = mapped_column(
+    messages: Mapped[list[dict[str, object]]] = mapped_column(
         JSONB, server_default=text("'[]'::jsonb")
     )
     created_at: Mapped[Optional[datetime]] = mapped_column(
