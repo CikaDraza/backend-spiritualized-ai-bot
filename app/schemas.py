@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
-from .models import LinguisticCategory
+from .models import Level, LinguisticCategory, Persona, ScenarioType
 
 
 class ChatMessage(BaseModel):
@@ -46,24 +46,21 @@ class UserProfile(BaseModel):
     role: str = "client"
 
 
-# --- Scenarios --------------------------------------------------------------
-class ScenarioCreate(BaseModel):
-    title: str = Field(min_length=1, max_length=128)
-    description: Optional[str] = None
+# --- Learning Spaces (per-user course = scenario_type + level + persona) -----
+class SpaceCreate(BaseModel):
+    scenario_type: ScenarioType
+    level: Level
+    persona: Persona
 
 
-class ScenarioUpdate(BaseModel):
-    title: Optional[str] = Field(default=None, min_length=1, max_length=128)
-    description: Optional[str] = None
-    is_active: Optional[bool] = None
-
-
-class ScenarioOut(BaseModel):
+class SpaceOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
     title: str
-    description: Optional[str] = None
+    scenario_type: ScenarioType
+    level: Level
+    persona: Persona
     is_active: bool
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
