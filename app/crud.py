@@ -7,10 +7,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from .auth import get_password_hash, verify_password
 from .models import (
     EmailVerificationToken,
+    LearningSpace,
+    Level,
     LinguisticCategory,
     Mistake,
+    Persona,
     RefreshToken,
-    Scenario,
+    ScenarioType,
     TestSlot,
     Transcript,
     User,
@@ -141,60 +144,57 @@ async def mark_email_verified(
     return user
 
 
-# --- Scenarios --------------------------------------------------------------
-async def list_scenarios(db: AsyncSession, user_id: int) -> list[Scenario]:
+# --- Learning Spaces --------------------------------------------------------
+async def list_spaces(db: AsyncSession, user_id: int) -> list[LearningSpace]:
+    """Active spaces only (soft-deleted are hidden)."""
     result = await db.execute(
-        select(Scenario)
-        .where(Scenario.user_id == user_id)
-        .order_by(Scenario.created_at.desc())
+        select(LearningSpace)
+        .where(LearningSpace.user_id == user_id, LearningSpace.is_active.is_(True))
+        .order_by(LearningSpace.created_at.desc())
     )
     return list(result.scalars().all())
 
 
-async def count_active_scenarios(db: AsyncSession, user_id: int) -> int:
+async def count_active_spaces(db: AsyncSession, user_id: int) -> int:
     result = await db.execute(
         select(func.count())
-        .select_from(Scenario)
-        .where(Scenario.user_id == user_id, Scenario.is_active.is_(True))
+        .select_from(LearningSpace)
+        .where(LearningSpace.user_id == user_id, LearningSpace.is_active.is_(True))
     )
     return int(result.scalar_one())
 
 
-async def get_scenario(db: AsyncSession, scenario_id: int) -> Scenario | None:
-    result = await db.execute(select(Scenario).where(Scenario.id == scenario_id))
+async def get_space(db: AsyncSession, space_id: int) -> LearningSpace | None:
+    result = await db.execute(
+        select(LearningSpace).where(LearningSpace.id == space_id)
+    )
     return result.scalars().first()
 
 
-async def create_scenario(
-    db: AsyncSession, user_id: int, title: str, description: Optional[str]
-) -> Scenario:
-    scenario = Scenario(user_id=user_id, title=title, description=description)
-    db.add(scenario)
-    await db.commit()
-    await db.refresh(scenario)
-    return scenario
-
-
-async def update_scenario(
+async def create_space(
     db: AsyncSession,
-    scenario: Scenario,
-    title: Optional[str] = None,
-    description: Optional[str] = None,
-    is_active: Optional[bool] = None,
-) -> Scenario:
-    if title is not None:
-        scenario.title = title
-    if description is not None:
-        scenario.description = description
-    if is_active is not None:
-        scenario.is_active = is_active
+    user_id: int,
+    title: str,
+    scenario_type: ScenarioType,
+    level: Level,
+    persona: Persona,
+) -> LearningSpace:
+    space = LearningSpace(
+        user_id=user_id,
+        title=title,
+        scenario_type=scenario_type,
+        level=level,
+        persona=persona,
+    )
+    db.add(space)
     await db.commit()
-    await db.refresh(scenario)
-    return scenario
+    await db.refresh(space)
+    return space
 
 
-async def delete_scenario(db: AsyncSession, scenario: Scenario) -> None:
-    await db.delete(scenario)
+async def soft_delete_space(db: AsyncSession, space: LearningSpace) -> None:
+    """Soft delete: keep the row, flip is_active=false (no hard delete for now)."""
+    space.is_active = False
     await db.commit()
 
 

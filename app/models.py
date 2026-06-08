@@ -38,6 +38,30 @@ class LinguisticCategory(str, enum.Enum):
     living_communication = "living_communication"
 
 
+# --- Learning Space enums (per-user course; admin "Scenario" catalog is separate, later) ----
+class ScenarioType(str, enum.Enum):
+    business_communication = "business_communication"
+    everyday_conversation = "everyday_conversation"
+    job_interview = "job_interview"
+    shopping = "shopping"
+    travel = "travel"
+
+
+class Level(str, enum.Enum):
+    A1 = "A1"
+    A2 = "A2"
+    B1 = "B1"
+    B2 = "B2"
+    C1 = "C1"
+
+
+class Persona(str, enum.Enum):
+    mila = "mila"
+    viktor = "viktor"
+    nora = "nora"
+    maria = "maria"
+
+
 class User(Base):
     __tablename__ = "users"
 
@@ -59,7 +83,7 @@ class User(Base):
         DateTime(timezone=True), default=utcnow
     )
 
-    scenarios: Mapped[list["Scenario"]] = relationship(
+    spaces: Mapped[list["LearningSpace"]] = relationship(
         back_populates="owner", cascade="all, delete-orphan"
     )
     chat_sessions: Mapped[list["ChatSession"]] = relationship(
@@ -122,19 +146,23 @@ class EmailVerificationToken(Base):
     user: Mapped["User"] = relationship(back_populates="email_verification_tokens")
 
 
-class Scenario(Base):
-    """A learning scenario/course. GUIDE.md treats 'scenario/course' as one concept, so this
-    supersedes the old `courses` table. Max MAX_ACTIVE_SCENARIOS active per user (enforced in
-    CRUD, PR6 — no FIFO)."""
+class LearningSpace(Base):
+    """A per-user personalized course = scenario_type + level + persona (max 5 active per user).
+    Title is auto-generated ("Job Interview · B1 · Viktor"). The admin/global "Scenario" catalog
+    is a separate concept (later). Delete is soft (is_active=false)."""
 
-    __tablename__ = "scenarios"
+    __tablename__ = "learning_spaces"
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
     title: Mapped[str] = mapped_column(String(128))
-    description: Mapped[Optional[str]] = mapped_column(Text)
+    scenario_type: Mapped[ScenarioType] = mapped_column(
+        Enum(ScenarioType, name="space_scenario_type")
+    )
+    level: Mapped[Level] = mapped_column(Enum(Level, name="space_level"))
+    persona: Mapped[Persona] = mapped_column(Enum(Persona, name="space_persona"))
     is_active: Mapped[bool] = mapped_column(
         Boolean, default=True, server_default=text("true")
     )
@@ -145,9 +173,9 @@ class Scenario(Base):
         DateTime(timezone=True), default=utcnow, onupdate=utcnow
     )
 
-    owner: Mapped["User"] = relationship(back_populates="scenarios")
-    test_slots: Mapped[list["TestSlot"]] = relationship(back_populates="scenario")
-    transcripts: Mapped[list["Transcript"]] = relationship(back_populates="scenario")
+    owner: Mapped["User"] = relationship(back_populates="spaces")
+    test_slots: Mapped[list["TestSlot"]] = relationship(back_populates="space")
+    transcripts: Mapped[list["Transcript"]] = relationship(back_populates="space")
 
 
 class TestSlot(Base):
@@ -159,8 +187,9 @@ class TestSlot(Base):
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
+    # FK column keeps the name scenario_id but references learning_spaces (legacy name).
     scenario_id: Mapped[Optional[int]] = mapped_column(
-        ForeignKey("scenarios.id", ondelete="SET NULL"), index=True
+        ForeignKey("learning_spaces.id", ondelete="SET NULL"), index=True
     )
     title: Mapped[str] = mapped_column(String(128))
     payload: Mapped[dict[str, Any]] = mapped_column(
@@ -171,7 +200,7 @@ class TestSlot(Base):
     )
 
     owner: Mapped["User"] = relationship(back_populates="test_slots")
-    scenario: Mapped[Optional["Scenario"]] = relationship(back_populates="test_slots")
+    space: Mapped[Optional["LearningSpace"]] = relationship(back_populates="test_slots")
 
 
 class ChatSession(Base):
@@ -201,8 +230,9 @@ class Transcript(Base):
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
+    # FK column keeps the name scenario_id but references learning_spaces (legacy name).
     scenario_id: Mapped[Optional[int]] = mapped_column(
-        ForeignKey("scenarios.id", ondelete="SET NULL"), index=True
+        ForeignKey("learning_spaces.id", ondelete="SET NULL"), index=True
     )
     session_id: Mapped[str] = mapped_column(String(64), index=True)
     messages: Mapped[list[dict[str, Any]]] = mapped_column(
@@ -216,7 +246,7 @@ class Transcript(Base):
     )
 
     owner: Mapped["User"] = relationship(back_populates="transcripts")
-    scenario: Mapped[Optional["Scenario"]] = relationship(back_populates="transcripts")
+    space: Mapped[Optional["LearningSpace"]] = relationship(back_populates="transcripts")
     mistakes: Mapped[list["Mistake"]] = relationship(back_populates="transcript")
 
 
