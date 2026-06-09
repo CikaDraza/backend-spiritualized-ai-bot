@@ -63,9 +63,12 @@ class Settings(BaseSettings):
     COOKIE_DOMAIN: Optional[str] = None
 
     # Email (Resend). When unset/placeholder, email.py logs the verification link instead of
-    # sending (dev-fallback until the custom domain + DNS are ready).
+    # sending (dev-fallback until the custom domain + DNS are ready). EMAIL_FROM must use the
+    # `Display Name <addr@domain>` form. EMAIL_LOGO_URL is the absolute URL of the header logo;
+    # when empty it derives from FRONTEND_URL (so set FRONTEND_URL to the deployed domain in prod).
     RESEND_API_KEY: str = ""
     EMAIL_FROM: str = "Spiritualized <onboarding@resend.dev>"
+    EMAIL_LOGO_URL: str = ""
 
     # Seed admin (used by `python -m app.seed_admin`). Avoid special-use TLDs (.local/.test) —
     # email-validator rejects them.
