@@ -147,9 +147,10 @@ def newsletter_body(
     return body
 
 
-def contact_body(*, name: str, email: str, message: str) -> str:
+def submission_body(*, heading: str, name: str, email: str, message: str) -> str:
+    """Relay an inbound user submission (contact / suggestion) to the team inbox."""
     return (
-        _heading("New contact message")
+        _heading(heading)
         + _p(f"<strong>From:</strong> {escape(name)} &lt;{escape(email)}&gt;")
         + _p(escape(message).replace("\n", "<br>"))
     )
@@ -194,5 +195,16 @@ def render_newsletter_email(
 def render_contact_email(*, name: str, email: str, message: str) -> str:
     return _layout(
         preheader=f"New contact message from {name}",
-        body_html=contact_body(name=name, email=email, message=message),
+        body_html=submission_body(
+            heading="New contact message", name=name, email=email, message=message
+        ),
+    )
+
+
+def render_suggestion_email(*, name: str, email: str, message: str) -> str:
+    return _layout(
+        preheader=f"New suggestion from {name}",
+        body_html=submission_body(
+            heading="New suggestion 💡", name=name, email=email, message=message
+        ),
     )

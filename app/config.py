@@ -63,13 +63,26 @@ class Settings(BaseSettings):
     COOKIE_SAMESITE: Literal["lax", "strict", "none"] = "lax"
     COOKIE_DOMAIN: Optional[str] = None
 
-    # Email (Resend). When unset/placeholder, email.py logs the verification link instead of
-    # sending (dev-fallback until the custom domain + DNS are ready). EMAIL_FROM must use the
-    # `Display Name <addr@domain>` form. EMAIL_LOGO_URL is the absolute URL of the header logo;
-    # when empty it derives from FRONTEND_URL (so set FRONTEND_URL to the deployed domain in prod).
+    # Email (Resend). When unset/placeholder, email.py logs the link instead of sending
+    # (dev-fallback). EMAIL_FROM_DEFAULT is the system/"noreply" sender (verification, login,
+    # password reset, security) and must use the `Display Name <addr@domain>` form. EMAIL_LOGO_URL
+    # is the header logo; when empty it derives from FRONTEND_URL (set FRONTEND_URL to the deployed
+    # domain in prod). EMAIL_FROM is a deprecated alias kept so older env still resolves the default.
     RESEND_API_KEY: str = ""
-    EMAIL_FROM: str = "Spiritualized <onboarding@resend.dev>"
+    EMAIL_FROM_DEFAULT: str = ""
+    EMAIL_FROM: str = ""  # deprecated → folded into EMAIL_FROM_DEFAULT in resolve_railway_settings
     EMAIL_LOGO_URL: str = ""
+
+    # Per-category senders. A single verified Resend domain sends from any alias on it, so each
+    # category has its own From. EMAIL_DOMAIN is the verified domain (empty → parsed from
+    # EMAIL_FROM_DEFAULT). Each EMAIL_FROM_* takes a full `Display Name <addr@domain>` and wins over
+    # the derived `Spiritualized Tutor … <alias@EMAIL_DOMAIN>`. Roles: noreply=system · contact=support
+    # · suggestions=user ideas · newsletter=campaigns · info=welcome/updates.
+    EMAIL_DOMAIN: str = ""
+    EMAIL_FROM_CONTACT: str = ""
+    EMAIL_FROM_NEWSLETTER: str = ""
+    EMAIL_FROM_SUGGESTIONS: str = ""
+    EMAIL_FROM_INFO: str = ""
 
     # Seed admin (used by `python -m app.seed_admin`). Avoid special-use TLDs (.local/.test) —
     # email-validator rejects them.
@@ -113,6 +126,11 @@ class Settings(BaseSettings):
             data["POSTGRES_DSN"] = to_asyncpg_dsn(postgres)
         elif database_url:
             data["POSTGRES_DSN"] = to_asyncpg_dsn(database_url)
+
+        # Default email sender: explicit EMAIL_FROM_DEFAULT, else the deprecated EMAIL_FROM alias,
+        # else the Resend onboarding sender (dev/testing).
+        default_from = str(data.get("EMAIL_FROM_DEFAULT") or "") or str(data.get("EMAIL_FROM") or "")
+        data["EMAIL_FROM_DEFAULT"] = default_from or "Spiritualized Tutor <onboarding@resend.dev>"
 
         mongodb = str(data.get("MONGODB_URI") or "")
         mongodb_url = str(data.get("MONGODB_URL") or data.get("RAILWAY_MONGODB_URI") or "")
