@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from typing import Literal, Optional, cast
 from urllib.parse import quote_plus, urlsplit, urlunsplit
 
@@ -100,13 +101,18 @@ class Settings(BaseSettings):
             return values
         data = cast(dict[str, object], values)
 
-        # Railway / Neon provide DATABASE_URL; derive the asyncpg DSN when POSTGRES_DSN is unset.
+        # On Railway (RAILWAY_ENVIRONMENT is auto-injected) the platform DATABASE_URL is canonical
+        # and wins over any (placeholder) POSTGRES_DSN. Locally, an explicit POSTGRES_DSN (the
+        # Docker dev DB) takes precedence over the unreachable Railway-internal DATABASE_URL.
+        on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT"))
         postgres = str(data.get("POSTGRES_DSN") or "")
         database_url = str(data.get("DATABASE_URL") or data.get("RAILWAY_DATABASE_URL") or "")
-        if not postgres and database_url:
+        if on_railway and database_url:
             data["POSTGRES_DSN"] = to_asyncpg_dsn(database_url)
         elif postgres:
             data["POSTGRES_DSN"] = to_asyncpg_dsn(postgres)
+        elif database_url:
+            data["POSTGRES_DSN"] = to_asyncpg_dsn(database_url)
 
         mongodb = str(data.get("MONGODB_URI") or "")
         mongodb_url = str(data.get("MONGODB_URL") or data.get("RAILWAY_MONGODB_URI") or "")
