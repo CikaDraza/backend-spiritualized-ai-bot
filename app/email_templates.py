@@ -80,11 +80,12 @@ def _layout(*, preheader: str, body_html: str) -> str:
         f'style="background-color:{_PAGE_BG};padding:24px 12px;"><tr><td align="center">'
         f'<table role="presentation" width="480" cellpadding="0" cellspacing="0" border="0" '
         f'style="width:480px;max-width:480px;background-color:{_CARD_BG};border-radius:16px;overflow:hidden;">'
-        # Header
+        # Header — logo in a 4:3 box (267×200), with the wordmark pulled up to overlap it slightly.
         '<tr><td align="center" style="padding:32px 28px 8px 28px;">'
-        f'<img src="{_logo_url()}" width="96" alt="{escape(APP_NAME)}" '
-        'style="display:block;width:96px;height:auto;border:0;margin:0 auto 12px auto;">'
-        f'<div style="font-family:{_FONT};font-size:19px;font-weight:800;color:{_INK};">Spiritualized</div>'
+        f'<img src="{_logo_url()}" width="268" height="200" alt="{escape(APP_NAME)}" '
+        'style="display:block;width:268px;height:200px;object-fit:contain;border:0;margin:0 auto;">'
+        f'<div style="position:relative;margin-top:-16px;font-family:{_FONT};font-size:19px;'
+        f'font-weight:800;color:{_INK};">Spiritualized</div>'
         f'<div style="font-family:{_FONT};font-size:13px;font-weight:700;color:{_PRIMARY};'
         'letter-spacing:.04em;text-transform:uppercase;">Language Tutor</div>'
         '</td></tr>'
