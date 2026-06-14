@@ -18,30 +18,32 @@ class Persona:
     tone: str
 
 
+# Slugs match the LearningSpace persona enum (mila/viktor/nora/maria) so a space's chosen tutor
+# resolves directly. Persona only colors tone; every persona still analyzes all four pillars.
 PERSONAS: dict[str, Persona] = {
+    "mila": Persona(
+        slug="mila",
+        name="Mila",
+        avatar="/agents/mila.png",
+        tone="warm, friendly and upbeat; encouraging and keeps the learner motivated with light humor",
+    ),
     "viktor": Persona(
         slug="viktor",
         name="Viktor",
         avatar="/agents/viktor.png",
         tone="calm, precise and philosophical; explains slowly and values exact wording",
     ),
-    "maria-deep": Persona(
-        slug="maria-deep",
-        name="Maria Deep",
-        avatar="/agents/maria-deep.png",
+    "nora": Persona(
+        slug="nora",
+        name="Nora",
+        avatar="/agents/nora.png",
+        tone="clear, structured and patient; breaks ideas down step by step",
+    ),
+    "maria": Persona(
+        slug="maria",
+        name="Maria",
+        avatar="/agents/maria.png",
         tone="warm, reflective and deeply empathetic; connects language to feeling and meaning",
-    ),
-    "kiki": Persona(
-        slug="kiki",
-        name="Kiki",
-        avatar="/agents/kiki.png",
-        tone="playful, upbeat and encouraging; keeps the learner motivated with light humor",
-    ),
-    "claudia-makelele": Persona(
-        slug="claudia-makelele",
-        name="Claudia Makelele",
-        avatar="/agents/claudia-makelele.png",
-        tone="direct, motivational and no-nonsense; pushes for clarity and momentum",
     ),
 }
 

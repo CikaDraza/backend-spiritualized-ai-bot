@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
@@ -84,6 +84,9 @@ class TestSlotOut(BaseModel):
 
 
 # --- Orchestrator / tutor ---------------------------------------------------
+Severity = Literal["minor", "moderate", "major"]
+
+
 class MistakeItem(BaseModel):
     """One learner mistake, bucketed by linguistic pillar. Explanation is in Serbian."""
 
@@ -91,9 +94,27 @@ class MistakeItem(BaseModel):
     original: str = ""
     correction: str = ""
     explanation: str = ""
+    severity: Severity = "moderate"
 
 
 class ErrorAnalysis(BaseModel):
+    mistakes: List[MistakeItem] = []
+
+
+class TutorTranslation(BaseModel):
+    """Serbian translations, shown on demand in the UI."""
+
+    ai_response: str = ""
+    correction: str = ""
+
+
+class TutorTurnResult(BaseModel):
+    """The LLM-produced structured turn (before persona/session_id are attached)."""
+
+    ai_response: str = ""
+    correction: str = ""
+    translation: TutorTranslation = Field(default_factory=TutorTranslation)
+    hints: List[str] = []
     mistakes: List[MistakeItem] = []
 
 
@@ -112,11 +133,9 @@ class TutorTurnRequest(BaseModel):
     scenario_id: Optional[int] = None
 
 
-class TutorTurnResponse(BaseModel):
-    assistant: str
+class TutorTurnResponse(TutorTurnResult):
     persona: str
     session_id: str
-    mistakes: List[MistakeItem] = []
 
 
 class ProgressItem(BaseModel):
