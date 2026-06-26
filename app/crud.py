@@ -1,16 +1,19 @@
 from datetime import datetime, timezone
 from typing import Optional
 
-from sqlalchemy import delete, func, select, update
+from sqlalchemy import ColumnElement, delete, func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .auth import get_password_hash, verify_password
 from .models import (
     EmailVerificationToken,
+    LearningProfile,
     LearningSpace,
+    LearningSpaceProfile,
     Level,
     LinguisticCategory,
     Mistake,
+    MistakeSeverity,
     Persona,
     RefreshToken,
     ScenarioType,
@@ -285,6 +288,8 @@ async def create_mistakes(
                 transcript_id=transcript_id,
                 session_id=session_id,
                 category=item.category,
+                subtype=item.subtype,
+                severity=MistakeSeverity(item.severity),
                 original=item.original,
                 correction=item.correction,
                 explanation=item.explanation,
@@ -302,3 +307,114 @@ async def mistakes_summary(
         .group_by(Mistake.category)
     )
     return [(row[0], int(row[1])) for row in result.all()]
+
+
+# --- Learning Space profiles (Layer 2) --------------------------------------
+async def get_space_profile(
+    db: AsyncSession, user_id: int, space_id: int
+) -> LearningSpaceProfile | None:
+    result = await db.execute(
+        select(LearningSpaceProfile).where(
+            LearningSpaceProfile.user_id == user_id,
+            LearningSpaceProfile.space_id == space_id,
+        )
+    )
+    return result.scalars().first()
+
+
+# --- Global learning profile (Layer 3) --------------------------------------
+async def get_profile(db: AsyncSession, user_id: int) -> LearningProfile | None:
+    result = await db.execute(
+        select(LearningProfile).where(LearningProfile.user_id == user_id)
+    )
+    return result.scalars().first()
+
+
+async def session_mistakes(
+    db: AsyncSession, user_id: int, session_id: str
+) -> list[Mistake]:
+    """All mistakes recorded in one conversation session (for the session summary)."""
+    result = await db.execute(
+        select(Mistake)
+        .where(Mistake.user_id == user_id, Mistake.session_id == session_id)
+        .order_by(Mistake.created_at.asc())
+    )
+    return list(result.scalars().all())
+
+
+async def mistake_history(
+    db: AsyncSession, user_id: int, max_sessions: int = 20
+) -> list[dict[str, int]]:
+    """Per-session subtype counts, chronological (oldest first), for pattern detection.
+    Returns at most the `max_sessions` most recent sessions."""
+    first_seen = func.min(Mistake.created_at)
+    session_rows = await db.execute(
+        select(Mistake.session_id, first_seen)
+        .where(Mistake.user_id == user_id, Mistake.session_id.is_not(None))
+        .group_by(Mistake.session_id)
+        .order_by(first_seen)
+    )
+    session_ids = [sid for sid, _ in session_rows.all() if sid is not None]
+    session_ids = session_ids[-max_sessions:]
+    if not session_ids:
+        return []
+
+    count_rows = await db.execute(
+        select(Mistake.session_id, Mistake.subtype, func.count())
+        .where(Mistake.user_id == user_id, Mistake.session_id.in_(session_ids))
+        .group_by(Mistake.session_id, Mistake.subtype)
+    )
+    per_session: dict[str, dict[str, int]] = {sid: {} for sid in session_ids}
+    for sid, subtype, count in count_rows.all():
+        if sid is None or subtype is None:
+            continue
+        per_session[sid][subtype.value] = int(count)
+    return [per_session[sid] for sid in session_ids]
+
+
+async def mistake_stats(
+    db: AsyncSession,
+    user_id: int,
+    session_id: str | None = None,
+    space_id: int | None = None,
+) -> dict[str, dict[str, int]]:
+    """Aggregate mistake counts for the profile/CEFR engines. Optionally scope to one session
+    (Layer 1/2 rollup) or one space (Layer 2). Returns counts keyed by pillar, subtype, severity."""
+    conditions: list[ColumnElement[bool]] = [Mistake.user_id == user_id]
+    if session_id is not None:
+        conditions.append(Mistake.session_id == session_id)
+    if space_id is not None:
+        # transcripts hold the space link (column legacy-named scenario_id)
+        conditions.append(
+            Mistake.transcript_id.in_(
+                select(Transcript.id).where(Transcript.scenario_id == space_id)
+            )
+        )
+
+    by_pillar: dict[str, int] = {}
+    for pillar, count in (
+        await db.execute(
+            select(Mistake.category, func.count()).where(*conditions).group_by(Mistake.category)
+        )
+    ).all():
+        by_pillar[pillar.value] = int(count)
+
+    by_subtype: dict[str, int] = {}
+    for subtype, count in (
+        await db.execute(
+            select(Mistake.subtype, func.count()).where(*conditions).group_by(Mistake.subtype)
+        )
+    ).all():
+        if subtype is not None:
+            by_subtype[subtype.value] = int(count)
+
+    by_severity: dict[str, int] = {}
+    for severity, count in (
+        await db.execute(
+            select(Mistake.severity, func.count()).where(*conditions).group_by(Mistake.severity)
+        )
+    ).all():
+        if severity is not None:
+            by_severity[severity.value] = int(count)
+
+    return {"by_pillar": by_pillar, "by_subtype": by_subtype, "by_severity": by_severity}

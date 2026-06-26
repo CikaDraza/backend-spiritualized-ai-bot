@@ -26,46 +26,29 @@ from .crud import (
     append_transcript_messages,
     create_mistakes,
     get_or_create_transcript,
+    get_profile,
     get_space,
+    get_space_profile,
+    session_mistakes,
 )
 from .models import User
+from .prompt_builder import build_system_prompt
 from .schemas import ChatMessage, TutorTurnResponse, TutorTurnResult
 
 logger = logging.getLogger("spiritualized.orchestrator")
 
 MODEL = "gpt-4o-mini"
 
-_TURN_SHAPE = """Reply with STRICT JSON only, of EXACTLY this shape:
-{
-  "ai_response": "<concise, in-character reply that continues the conversation and asks a follow-up question; DO NOT put grammar corrections here>",
-  "correction": "<the learner's last message rewritten in correct, natural English; empty string if it was already correct>",
-  "translation": {"ai_response": "<Serbian translation of ai_response>", "correction": "<Serbian translation of correction; empty string if there is no correction>"},
-  "hints": ["<1 to 3 short, actionable tips in English>"],
-  "mistakes": [{"category": "<semantics|syntax|orthography|living_communication>", "original": "<the learner's exact problematic fragment>", "correction": "<the fix>", "explanation": "<short why, in Serbian>", "severity": "<minor|moderate|major>"}]
-}
-If the learner's message is flawless: correction = "" and mistakes = []. Output JSON only, no extra text."""
-
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def _system_prompt(persona: Persona, scenario: str, level: str) -> str:
-    return (
-        f"You are {persona.name}, a warm, encouraging bilingual English tutor for a Serbian "
-        f"speaker. Persona tone: {persona.tone}. You are role-playing a '{scenario}' conversation "
-        f"at CEFR level {level}; keep ai_response natural, in character, and around that level.\n\n"
-        + _TURN_SHAPE
-    )
-
-
 def _turn_messages(
-    persona: Persona, scenario: str, level: str, history: list[ChatMessage], message: str
+    system_prompt: str, history: list[ChatMessage], message: str
 ) -> list[ChatCompletionMessageParam]:
     messages: list[ChatCompletionMessageParam] = [
-        ChatCompletionSystemMessageParam(
-            role="system", content=_system_prompt(persona, scenario, level)
-        )
+        ChatCompletionSystemMessageParam(role="system", content=system_prompt)
     ]
     for item in history:
         messages.append(to_openai_message(item.role, item.content))
@@ -74,7 +57,7 @@ def _turn_messages(
 
 
 async def _structured_turn(
-    persona: Persona, scenario: str, level: str, history: list[ChatMessage], message: str
+    system_prompt: str, persona: Persona, history: list[ChatMessage], message: str
 ) -> TutorTurnResult:
     if not settings.OPENAI_API_KEY:
         return TutorTurnResult(
@@ -85,7 +68,7 @@ async def _structured_turn(
     try:
         response = await get_client().chat.completions.create(
             model=MODEL,
-            messages=_turn_messages(persona, scenario, level, history, message),
+            messages=_turn_messages(system_prompt, history, message),
             temperature=0.6,
             max_tokens=900,
             response_format={"type": "json_object"},
@@ -116,7 +99,19 @@ async def run_turn(
     )
     level = space.level.value if space else "B1"
 
-    result = await _structured_turn(persona, scenario, level, history, message)
+    # Load the three memory layers and build an adaptive system prompt (PR11.5). Cold start (no
+    # profiles / no prior mistakes) degrades to the original persona/scenario prompt.
+    space_profile = (
+        await get_space_profile(db, user.id, scenario_id) if scenario_id is not None else None
+    )
+    global_profile = await get_profile(db, user.id)
+    prior = await session_mistakes(db, user.id, session_id)
+    session_subtypes = sorted({m.subtype.value for m in prior if m.subtype is not None})
+    system_prompt = build_system_prompt(
+        persona, scenario, level, space_profile, global_profile, session_subtypes
+    )
+
+    result = await _structured_turn(system_prompt, persona, history, message)
 
     transcript = await get_or_create_transcript(db, user.id, session_id, scenario_id)
     new_messages: list[dict[str, object]] = [

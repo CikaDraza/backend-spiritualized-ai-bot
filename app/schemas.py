@@ -1,9 +1,10 @@
 from datetime import datetime
 from typing import Dict, List, Literal, Optional
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, model_validator
 
-from .models import Level, LinguisticCategory, Persona, ScenarioType
+from .models import Level, LinguisticCategory, MistakeSubtype, Persona, ScenarioType
+from .taxonomy import pillar_for
 
 
 class ChatMessage(BaseModel):
@@ -88,13 +89,22 @@ Severity = Literal["minor", "moderate", "major"]
 
 
 class MistakeItem(BaseModel):
-    """One learner mistake, bucketed by linguistic pillar. Explanation is in Serbian."""
+    """One learner mistake. The LLM emits `subtype`; `category` (the pillar) is always derived from
+    it via the taxonomy, never trusted from the model. Explanation is in Serbian."""
 
-    category: LinguisticCategory
+    subtype: MistakeSubtype = MistakeSubtype.other
+    category: LinguisticCategory = LinguisticCategory.semantics
     original: str = ""
     correction: str = ""
     explanation: str = ""
     severity: Severity = "moderate"
+
+    @model_validator(mode="after")
+    def _derive_category(self) -> "MistakeItem":
+        # Single source of truth: the pillar is computed from the subtype, overriding any value the
+        # model may have guessed.
+        self.category = pillar_for(self.subtype)
+        return self
 
 
 class ErrorAnalysis(BaseModel):
@@ -141,3 +151,43 @@ class TutorTurnResponse(TutorTurnResult):
 class ProgressItem(BaseModel):
     category: LinguisticCategory
     count: int
+
+
+# --- Session summary (PR11.3) -----------------------------------------------
+class PillarScores(BaseModel):
+    """0..100 score per linguistic pillar for one session."""
+
+    semantics: int
+    syntax: int
+    orthography: int
+    living_communication: int
+
+
+class SessionSummary(BaseModel):
+    """End-of-session rollup the frontend drawer renders (computed server-side; replaces the old
+    client mock heuristic)."""
+
+    current_level: str
+    target_level: str
+    pillar_scores: PillarScores
+    duration_min: int
+    message_count: int
+    strong_areas: list[str]
+    weak_areas: list[str]
+    most_common_correction: str
+    recommendation: str
+
+
+class SessionCompleteRequest(BaseModel):
+    session_id: str
+    scenario_id: int
+
+
+class CefrAssessment(BaseModel):
+    """Hybrid CEFR engine output (PR11.4). The LLM (Layer B) returns these; the deterministic
+    baseline (Layer A) fills the same shape when no key is set."""
+
+    estimated_cefr: str = ""
+    confidence: float = 0.0
+    reasoning: str = ""
+    next_goal: str = ""
