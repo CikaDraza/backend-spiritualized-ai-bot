@@ -51,6 +51,7 @@ from .database import get_db
 from .email import send_verification_email
 from .agents import list_personas
 from .orchestrator import run_turn
+from .profile_engine import complete_session
 from .rate_limit import rate_limit_chat
 from .redis_client import close_redis
 from .models import LearningSpace, Level, Persona, Role, ScenarioType, TestSlot, User
@@ -59,6 +60,8 @@ from .schemas import (
     ChatResponse,
     PersonaOut,
     ProgressItem,
+    SessionCompleteRequest,
+    SessionSummary,
     SpaceCreate,
     SpaceOut,
     TestSlotCreate,
@@ -471,6 +474,21 @@ async def tutor_turn(
             payload.persona,
             payload.scenario_id,
         )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/tutor/session/complete", response_model=SessionSummary)
+async def tutor_session_complete(
+    payload: SessionCompleteRequest,
+    current_user: User = Depends(get_verified_user),
+    db: AsyncSession = Depends(get_db),
+) -> SessionSummary:
+    """End-of-session rollup: compute the summary and fold the session into the learner's
+    Learning Space profile (Layer 2). Owner-scoped to the space."""
+    space = await _owned_space(payload.scenario_id, current_user, db)
+    try:
+        return await complete_session(db, current_user, space, payload.session_id)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 

@@ -6,9 +6,11 @@ from sqlalchemy import (
     Boolean,
     DateTime,
     Enum,
+    Float,
     ForeignKey,
     String,
     Text,
+    UniqueConstraint,
     text,
 )
 from sqlalchemy.dialects.postgresql import JSONB
@@ -36,6 +38,32 @@ class LinguisticCategory(str, enum.Enum):
     syntax = "syntax"
     orthography = "orthography"
     living_communication = "living_communication"
+
+
+class MistakeSubtype(str, enum.Enum):
+    """Granular mistake label the LLM emits per error. The backend deterministically maps each
+    subtype to one of the four pillars (LinguisticCategory) via app.taxonomy — the model never
+    picks the pillar itself. `pronunciation` is dormant until Voice (PR16)."""
+
+    articles = "articles"
+    prepositions = "prepositions"
+    verb_tenses = "verb_tenses"
+    word_order = "word_order"
+    vocabulary = "vocabulary"
+    clarity = "clarity"
+    spelling = "spelling"
+    pronunciation = "pronunciation"
+    idioms = "idioms"
+    naturalness = "naturalness"
+    other = "other"
+
+
+class MistakeSeverity(str, enum.Enum):
+    """How serious a single mistake is — drives correction-card colors and profile weighting."""
+
+    minor = "minor"
+    moderate = "moderate"
+    major = "major"
 
 
 # --- Learning Space enums (per-user course; admin "Scenario" catalog is separate, later) ----
@@ -266,6 +294,13 @@ class Mistake(Base):
     category: Mapped[LinguisticCategory] = mapped_column(
         Enum(LinguisticCategory, name="linguistic_category"), index=True
     )
+    # Granular label + seriousness (PR11.2). Nullable so pre-PR11 rows stay valid.
+    subtype: Mapped[Optional[MistakeSubtype]] = mapped_column(
+        Enum(MistakeSubtype, name="mistake_subtype"), nullable=True, index=True
+    )
+    severity: Mapped[Optional[MistakeSeverity]] = mapped_column(
+        Enum(MistakeSeverity, name="mistake_severity"), nullable=True, index=True
+    )
     original: Mapped[Optional[str]] = mapped_column(Text)
     correction: Mapped[Optional[str]] = mapped_column(Text)
     explanation: Mapped[Optional[str]] = mapped_column(Text)
@@ -275,3 +310,90 @@ class Mistake(Base):
 
     user: Mapped["User"] = relationship(back_populates="mistakes")
     transcript: Mapped[Optional["Transcript"]] = relationship(back_populates="mistakes")
+
+
+class LearningSpaceProfile(Base):
+    """Layer 2 memory (PR11.3): how a learner performs *within one Learning Space* (domain).
+    One row per (user, space); evolves on each completed session. Distinct from the per-user
+    Global Learning Profile (Layer 3)."""
+
+    __tablename__ = "learning_space_profiles"
+    __table_args__ = (
+        UniqueConstraint("user_id", "space_id", name="uq_space_profile_user_space"),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
+    )
+    space_id: Mapped[int] = mapped_column(
+        ForeignKey("learning_spaces.id", ondelete="CASCADE"), index=True
+    )
+    # per-pillar score 0..100, an EMA across this space's sessions
+    pillar_scores: Mapped[dict[str, int]] = mapped_column(
+        JSONB, server_default=text("'{}'::jsonb")
+    )
+    # subtypes the learner errs on most in this domain (most-frequent first)
+    weak_areas: Mapped[list[str]] = mapped_column(
+        JSONB, server_default=text("'[]'::jsonb")
+    )
+    # domain vocabulary strengths — filled by the LLM assessment (PR11.4)
+    domain_vocabulary: Mapped[list[str]] = mapped_column(
+        JSONB, server_default=text("'[]'::jsonb")
+    )
+    sessions_completed: Mapped[int] = mapped_column(default=0, server_default=text("0"))
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
+
+
+class LearningProfile(Base):
+    """Layer 3 memory (PR11.4): the learner's global identity across all spaces — a smoothed CEFR
+    estimate, recurring mistakes, strengths/weaknesses, learning style. One row per user. CEFR
+    levels are stored as 2-char strings (A1..C1) to avoid a second Postgres enum type."""
+
+    __tablename__ = "learning_profiles"
+
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), unique=True, index=True
+    )
+    # Smoothed CEFR (Layer C): committed is the stable shown level; emerging is the latest candidate.
+    committed_cefr: Mapped[Optional[str]] = mapped_column(String(2))
+    emerging_cefr: Mapped[Optional[str]] = mapped_column(String(2))
+    target_cefr: Mapped[Optional[str]] = mapped_column(String(2))
+    cefr_confidence: Mapped[float] = mapped_column(
+        Float, default=0.0, server_default=text("0")
+    )
+    cefr_history: Mapped[list[dict[str, object]]] = mapped_column(
+        JSONB, server_default=text("'[]'::jsonb")
+    )
+    # Global aggregates (machine form: raw pillar/subtype keys).
+    strengths: Mapped[list[str]] = mapped_column(JSONB, server_default=text("'[]'::jsonb"))
+    weaknesses: Mapped[list[str]] = mapped_column(JSONB, server_default=text("'[]'::jsonb"))
+    frequent_mistakes: Mapped[list[dict[str, object]]] = mapped_column(
+        JSONB, server_default=text("'[]'::jsonb")
+    )
+    mastered: Mapped[list[str]] = mapped_column(JSONB, server_default=text("'[]'::jsonb"))
+    # Adaptive recommendations + structured pattern report (PR12): {recurring:[], improving:[]}.
+    recommendations: Mapped[list[str]] = mapped_column(
+        JSONB, server_default=text("'[]'::jsonb")
+    )
+    patterns: Mapped[dict[str, object]] = mapped_column(
+        JSONB, server_default=text("'{}'::jsonb")
+    )
+    # Filled by a later LLM pass; nullable for now.
+    learning_style: Mapped[Optional[dict[str, object]]] = mapped_column(JSONB, nullable=True)
+    totals: Mapped[dict[str, object]] = mapped_column(
+        JSONB, server_default=text("'{}'::jsonb")
+    )
+    sessions_completed: Mapped[int] = mapped_column(default=0, server_default=text("0"))
+    created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow
+    )
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
