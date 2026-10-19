@@ -1,0 +1,3166 @@
+{
+  "schema": "dmd.repository-audit.v2",
+  "repositoryTarget": {
+    "schema": "dmd.repository-target.v1",
+    "repository": "CikaDraza/backend-spiritualized-ai-bot",
+    "repositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+    "bindingId": "1111f319-03bd-4eaf-a1fd-5a136b830e1f",
+    "bindingVersion": 1,
+    "repositoryId": "1261167223",
+    "access": "access_verified_contents_not_audited"
+  },
+  "sourceContext": {
+    "schema": "dmd.project-audit-context.v1",
+    "revision": "2bc9a22b493358ac2fb32bc4907cc8a4ae80642e9d060298d5f240041a4249bd",
+    "sha256": "5c4d72ebb7b38abc9e92f67a3548e8d1897b8b57e8bb85d2f85139b76efbcf2e"
+  },
+  "subject": {
+    "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6"
+  },
+  "scope": {
+    "all": true,
+    "milestoneIds": [
+      "ce94df82-1953-406b-a924-9bab25367242",
+      "4154e590-1c77-49f2-bd45-44236cffb8dd",
+      "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+      "85155ea4-8760-4c22-ac96-099345abf4ed",
+      "e67e32c3-e741-47df-91d3-235cd9e69907",
+      "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+      "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+      "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+      "f62df4fe-ec0d-4673-966f-ef4bd90485f9"
+    ],
+    "milestones": [
+      {
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "title": "# 1 — Foundation",
+        "description": "- Creating backend and server on Railway.\n- Creating DB Postgres\n- Creating frontend in NextJS and hosted on Vercel",
+        "tasks": [
+          {
+            "taskId": "9f23d45c-2f41-45d5-a99a-bc96d5243700",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Creating backend and server on Railway.",
+            "description": "We create DB schema on service",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "9b3961df-c663-4bd4-8969-7a07ac2bca2e",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Creating frontend in NextJS and hosted on Vercel",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "title": "1.1 Authentication & Security",
+        "description": "- Registration\n- Login\n- Email verification\n- Password reset\n- JWT access tokens\n- Refresh token rotation\n- Secure cookies\n- Protected routes\n- Role system (Admin / Student)",
+        "tasks": [
+          {
+            "taskId": "21863775-f0bd-40f1-8b72-213dd6a17a76",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Registration",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "ac52bfc6-c799-4b51-8486-3f182b099bf6",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Login",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "3680c14f-032c-48b0-a5b4-b880353a5438",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Email verification",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "303311c2-b390-48e6-9ae4-8c0e107a120c",
+            "engineeringId": null,
+            "ref": null,
+            "title": "JWT access tokens",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "fb2527dd-27de-4e4e-93af-d19526f4711d",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Refresh token rotation",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "af3c68b0-e9e3-4a88-b110-9e309445da22",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Secure cookies",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "2515bd15-1e27-4c24-ae7b-b9f1cdaa79c9",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Protected routes",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "5fcc8ac5-0656-460e-9951-8714862cda90",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Role system (Admin / Student)",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "title": "1.2 Infrastructure",
+        "description": "PostgreSQL\nRedis integration\nRailway deployment\nEnvironment management\nAPI gateway preparation\nRate limiting\nLogging",
+        "tasks": [
+          {
+            "taskId": "aea8a05d-dbad-412e-b68f-00d27983b03b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "PostgreSQL",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "058eb8df-69ab-47d0-8b69-dd2de9313e68",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Redis integration",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "14728ce1-9f2a-468c-8be0-d787f2edca7c",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Railway deployment",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "1d2737ab-c7c7-4181-b58e-71156a345784",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Environment management",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "a63b6095-26f3-409e-b4de-b0bd5a65f205",
+            "engineeringId": null,
+            "ref": null,
+            "title": "API gateway preparation",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "4babc77a-16ba-42d4-bdd0-430c245825dc",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Rate limiting",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "b2453da8-fbc6-43eb-87de-7dcee3eef77b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Logging",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "title": "1.3 Learning Spaces",
+        "description": "Create Learning Space\nDelete Learning Space\nSpace limits (5)\nScenario selection\nLevel selection\nTutor selection",
+        "tasks": [
+          {
+            "taskId": "482b9b67-6db1-46fc-88ed-bfbc1460f405",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Create Learning Space",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "92ee7256-6a2d-4540-a59c-a80afb596216",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Delete Learning Space",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "becf704a-7c5a-464b-9967-42c7d8b0ea6f",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Space limits (5)",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "f8299448-1ab7-4b5d-8cb3-0a67c26fc445",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Scenario selection",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "0fc70fe5-b946-4179-8881-afc28a35fcf9",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Level selection",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "3f20fd5e-894a-4c15-bc20-99fc180deab8",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Tutor selection",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "title": "2 — Classroom System",
+        "description": "Classroom Navigation\nConversation MVP\nStructured Corrections",
+        "tasks": [
+          {
+            "taskId": "2fee66ed-fb1f-44a5-b450-4eb52ee05194",
+            "engineeringId": null,
+            "ref": null,
+            "title": "2.1 Classroom Navigation",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "96934296-6b55-4040-b265-1b920611c56b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "2.2 Conversation MVP",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "27a88378-fde3-476e-a357-730e88d1f9a9",
+            "engineeringId": null,
+            "ref": null,
+            "title": "2.3 Structured Corrections",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "title": "3 — Adaptive Learning Engine (Brain of the Application)",
+        "description": "We will build the Learning Engine incrementally.\nEach phase should produce a stable, deployable system.\nAvoid introducing unnecessary abstractions.\nPrefer clean architecture over premature optimization.",
+        "tasks": [
+          {
+            "taskId": "051184c3-7119-4e5a-9ce4-932027c49f7d",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Structured Tutor Response",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "f1b9182b-d6f0-4bea-bc65-4e1013cbaebb",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Mistake Tracking Engine",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "60ff964c-a2b3-422f-9c2b-3018423448e6",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Learning Profile",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "7ebda9c1-7557-4483-a363-3450b80fe57b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Adaptive Prompt Builder",
+            "description": "",
+            "dmdPlanningState": "in_progress",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "8615c4f8-d8be-4a6b-b40a-8468ffd16abb",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Hybrid assessment engine",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "title": "4 — Progress & Analytics",
+        "description": "4.1 Progress Dashboard\n4.2 Four Linguistic Pillars",
+        "tasks": [
+          {
+            "taskId": "882e6b54-f200-435e-8628-3b7b7ce5fc30",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Progress Dashboard",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "658ea083-0e25-4e77-8bed-6d5e906feae5",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Four Linguistic Pillars",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "title": "5 — Content Management",
+        "description": "5.1 Admin Panel\n5.2 Scenario Builder",
+        "tasks": [
+          {
+            "taskId": "8bcccf9a-edb3-4d0c-ba3d-12ee752e59ec",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Admin Panel",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "ed24af09-4144-42c3-897c-49a3d1b82bd6",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Scenario Builder",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "title": "6 — Voice Learning",
+        "description": "6.1 Speech-to-Text\n6.2 OpenAI Realtime Integration\n6.3 Pronunciation Coaching",
+        "tasks": [
+          {
+            "taskId": "48245791-8fec-4e71-b66b-4ccefa87a805",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Speech-to-Text",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "a9a82f9a-2c57-40eb-bd96-a77a64067cdd",
+            "engineeringId": null,
+            "ref": null,
+            "title": "OpenAI Realtime Integration",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "36379ec3-b572-4bca-b02a-035e7a52b2e4",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Pronunciation Coaching",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      }
+    ],
+    "taskCount": 38,
+    "approvedScope": {
+      "status": "missing_baseline",
+      "version": null
+    }
+  },
+  "trust": "engineer_report_requires_dmd_validation",
+  "observedAt": "2026-10-17T22:43:10Z",
+  "coverage": {
+    "expectedRepositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+    "repositoryIdentity": {
+      "localOrigin": "CikaDraza/backend-spiritualized-ai-bot",
+      "localOriginMatchesTarget": true,
+      "githubApi": {
+        "status": "verified_read_only",
+        "repositoryId": "1261167223",
+        "fullName": "CikaDraza/backend-spiritualized-ai-bot"
+      },
+      "executorProviderIdentityVerified": false,
+      "githubApiCommand": "GH_PROMPT_DISABLED=1 gh api repos/CikaDraza/backend-spiritualized-ai-bot --jq '{id,full_name,html_url}'"
+    },
+    "local": {
+      "status": "verified",
+      "root": ".",
+      "head": {
+        "branch": "adaptive-learning-engine",
+        "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+        "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b"
+      },
+      "refs": [
+        {
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d"
+        },
+        {
+          "ref": "refs/heads/main",
+          "sha": "e75cace365d05a0c3d95e1dd79bc23b0247967fc"
+        },
+        {
+          "ref": "refs/heads/pr10-classroom-conversation-text",
+          "sha": "7c4749db7cbf9d44460b7b06320ecc101b6a5922"
+        },
+        {
+          "ref": "refs/heads/pr11-structured-conversation",
+          "sha": "5f093b2b46f9e2c4c0ad8aa8e64b2b87a4bcf6e1"
+        }
+      ],
+      "worktrees": [
+        {
+          "path": ".",
+          "branch": "adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d"
+        }
+      ],
+      "stagedPaths": [],
+      "unstagedTrackedPaths": [],
+      "preflightDirtyPaths": [
+        "tests/"
+      ],
+      "postBootstrapDirtyPaths": [
+        ".dmd/",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "dmd-docs/",
+        "tests/"
+      ],
+      "preexistingUntrackedArtifacts": [
+        {
+          "path": "tests/test_config_helpers.py",
+          "sha256": "eea4612a9c3af59964f34acbf47b6ba928e1e5fda3e026f2efd00b9db68367aa",
+          "sourceTracked": false
+        }
+      ],
+      "ignoredLocalRuntimeFiles": [
+        ".env"
+      ],
+      "dirtyImplementationFound": false,
+      "additionalWorktrees": []
+    },
+    "remote": {
+      "status": "fetched_all_advertised_heads_without_pruning",
+      "fetchStartedAt": "2026-10-17T22:43:10Z",
+      "fetchFinishedAt": "2026-10-17T22:43:10Z",
+      "fetchCommand": "git fetch origin '+refs/heads/*:refs/remotes/origin/*'",
+      "refs": [
+        {
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d"
+        },
+        {
+          "ref": "refs/remotes/origin/fix/db-url-precedence",
+          "sha": "2943c576d9ccd9ae85041c488ee37dfb851da48b"
+        },
+        {
+          "ref": "refs/remotes/origin/learning-spaces",
+          "sha": "c4db6139e51cdfdd5189222c83f9e3a9aacb5208"
+        },
+        {
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+        },
+        {
+          "ref": "refs/remotes/origin/pr10-classroom-conversation-text",
+          "sha": "7c4749db7cbf9d44460b7b06320ecc101b6a5922"
+        },
+        {
+          "ref": "refs/remotes/origin/pr11-structured-conversation",
+          "sha": "5f093b2b46f9e2c4c0ad8aa8e64b2b87a4bcf6e1"
+        },
+        {
+          "ref": "refs/remotes/origin/role-model",
+          "sha": "a1b381e3431d229989fa7df72e7e7fff80422f2f"
+        }
+      ],
+      "unavailableRefs": [
+        "refs/heads/staging (not advertised by origin)",
+        "refs/heads/qa (not advertised by origin)"
+      ],
+      "githubPullRequests": [
+        {
+          "number": 1,
+          "state": "MERGED",
+          "url": "https://github.com/CikaDraza/backend-spiritualized-ai-bot/pull/1"
+        },
+        {
+          "number": 2,
+          "state": "MERGED",
+          "url": "https://github.com/CikaDraza/backend-spiritualized-ai-bot/pull/2"
+        },
+        {
+          "number": 3,
+          "state": "MERGED",
+          "url": "https://github.com/CikaDraza/backend-spiritualized-ai-bot/pull/3"
+        },
+        {
+          "number": 4,
+          "state": "MERGED",
+          "url": "https://github.com/CikaDraza/backend-spiritualized-ai-bot/pull/4"
+        },
+        {
+          "number": 5,
+          "state": "MERGED",
+          "url": "https://github.com/CikaDraza/backend-spiritualized-ai-bot/pull/5"
+        },
+        {
+          "number": 6,
+          "state": "MERGED",
+          "url": "https://github.com/CikaDraza/backend-spiritualized-ai-bot/pull/6"
+        }
+      ],
+      "pullRequestApi": "read_only_connected",
+      "headEnumerationCommand": "git ls-remote --heads origin",
+      "pullRequestListCommand": "GH_PROMPT_DISABLED=1 gh pr list --repo CikaDraza/backend-spiritualized-ai-bot --state all --limit 25 --json number,title,state,headRefName,baseRefName,url"
+    },
+    "main": {
+      "branch": "main",
+      "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+      "status": "fetched_live_tree_matches_audited_head_tree",
+      "localMainSha": "e75cace365d05a0c3d95e1dd79bc23b0247967fc",
+      "localMainStatus": "stale_behind_origin_main_by_5_commits",
+      "auditedHeadIsAncestorOfOriginMain": true
+    },
+    "gaps": [
+      "No origin staging or qa heads were advertised; their state is unknown and they were not substituted for main.",
+      "Only the selected backend repository was inspected; the separately bound frontend repository is outside this audit.",
+      "No live database, Redis, email, OpenAI, runtime, deployment, or CI verification was performed."
+    ]
+  },
+  "bootstrap": {
+    "executorSha256": "a9e36f903b0c9c7b453879a0fa2dc6cff2b013ce00fc0eaeeb2071aacc4ba11a",
+    "mode": "applied_after_matching_dry_run",
+    "dryRun": {
+      "result": "passed",
+      "wouldCreate": 9,
+      "wouldPreserve": 0,
+      "localRootVerified": true,
+      "taskAccepted": false
+    },
+    "apply": {
+      "result": "passed",
+      "created": 9,
+      "preserved": 0,
+      "contentVerified": 9,
+      "taskAccepted": false
+    },
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "status": "created",
+        "sha256": "e47d6705b98cf307cb151294a3f23bac36e16e9bb66e72c8bcee09a8b0c098c0"
+      },
+      {
+        "path": "CLAUDE.md",
+        "status": "created",
+        "sha256": "66063a0c68b5e25b6385b1f29073c98975e2ce8071588d86d3fd468616594766"
+      },
+      {
+        "path": "dmd-docs/README.md",
+        "status": "created",
+        "sha256": "056ce873503e571e65fc93e7f69fbd4fd3a9b3128b6b7c6fd8baa6c15d6c4120"
+      },
+      {
+        "path": ".dmd/README.md",
+        "status": "created",
+        "sha256": "27ee70702d48b829fa0dc977bd25074ef760c86285d0398feb7a79c882a3bd1a"
+      },
+      {
+        "path": "dmd-docs/PROJECT_CONTEXT.md",
+        "status": "created",
+        "sha256": "e02e015fb015ef8af979a550f6c2a09073999afe2350cafa80347ebe920ac0da"
+      },
+      {
+        "path": "dmd-docs/DMD_IMPLEMENTATION_REPORT.md",
+        "status": "created",
+        "sha256": "86d28e124bfdd4c29ce8e932662ac313e9df57bc9dc7511a9cf5389c6c7c30d6"
+      },
+      {
+        "path": "dmd-docs/engineering/DMD_ENGINEERING_CONSTITUTION.md",
+        "status": "created",
+        "sha256": "32f46a7844e99e83a7e6a129e67b4458bf0ff58ca287a458e08deb88ac605cf1"
+      },
+      {
+        "path": "dmd-docs/engineering/DMD_GOVERNANCE_POLICY_HIERARCHY.md",
+        "status": "created",
+        "sha256": "672b9504af76671f3f6549065b33f7844f2e98f66e0056925435cfb01073c700"
+      },
+      {
+        "path": ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/contexts/2bc9a22b493358ac2fb32bc4907cc8a4ae80642e9d060298d5f240041a4249bd.json",
+        "status": "created",
+        "sha256": "5c4d72ebb7b38abc9e92f67a3548e8d1897b8b57e8bb85d2f85139b76efbcf2e"
+      }
+    ],
+    "pathSafety": "executor validated repository-relative safe paths and no symlink escape",
+    "gitIgnoreCheck": "none of .dmd/, dmd-docs/, AGENTS.md, CLAUDE.md are ignored",
+    "providerIdentityVerifiedByExecutor": false,
+    "providerIdentityVerifiedSeparately": true,
+    "maintainedReportUpdate": {
+      "path": "dmd-docs/DMD_IMPLEMENTATION_REPORT.md",
+      "bootstrapTemplateSha256": "86d28e124bfdd4c29ce8e932662ac313e9df57bc9dc7511a9cf5389c6c7c30d6",
+      "currentSha256": "c1fe39ad5acd37798debdbef36d7eeea0d05a8aa2433744492f8eb3d56f9c7f9",
+      "status": "bootstrap-created-file-updated_with_audit_evidence"
+    },
+    "commands": [
+      "node <temporary-executor> --packet <temporary-packet.json> --target <selected-repository-root>",
+      "node <temporary-executor> --packet <temporary-packet.json> --target <selected-repository-root> --apply"
+    ]
+  },
+  "provenance": {
+    "sourceAudits": [],
+    "priorRepositoryAuditSearch": {
+      "path": ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/",
+      "status": "none_found_before_bootstrap"
+    },
+    "combinedHistoricalAudits": "none found in selected repository; no historical audit was rewritten or used as derived evidence",
+    "derivedHistoricalFindings": []
+  },
+  "tasks": [
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "taskId": "9f23d45c-2f41-45d5-a99a-bc96d5243700",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Creating backend and server on Railway.",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "FastAPI backend and Railway Procfile/config are present at main. This confirms repository code/configuration, not a live Railway deployment.",
+      "evidenceRefs": [
+        "Procfile:1",
+        "app/main.py:64",
+        "app/config.py:95"
+      ],
+      "remainingWork": [
+        "Verify the authorized non-production Railway deployment and migration health; no deployment evidence was available."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "taskId": "9b3961df-c663-4bd4-8969-7a07ac2bca2e",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Creating frontend in NextJS and hosted on Vercel",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "unverified",
+      "scopeApplicability": "other-repository; excluded by this handoff",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "unknown",
+      "criteria": [],
+      "assessment": "Frontend implementation and Vercel hosting are outside the selected backend repository; no project-level conclusion is made.",
+      "evidenceRefs": [],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": [
+        "The separately bound frontend repository was not selected or inspected."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "21863775-f0bd-40f1-8b72-213dd6a17a76",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Registration",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Registration route creates a user, issues verification token, then starts a cookie session.",
+      "evidenceRefs": [
+        "app/main.py:187",
+        "app/main.py:99",
+        "app/crud.py:22"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "ac52bfc6-c799-4b51-8486-3f182b099bf6",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Login",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Login authenticates the account and starts a cookie session.",
+      "evidenceRefs": [
+        "app/main.py:200",
+        "app/crud.py:36"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "3680c14f-032c-48b0-a5b4-b880353a5438",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Email verification",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Email verification and resend routes issue/consume hashed single-use tokens; email delivery has a development fallback.",
+      "evidenceRefs": [
+        "app/main.py:119",
+        "app/main.py:259",
+        "app/main.py:272",
+        "app/email.py:65",
+        "app/models.py:158"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "303311c2-b390-48e6-9ae4-8c0e107a120c",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "JWT access tokens",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "JWT access tokens are created and decoded with configured expiry and key.",
+      "evidenceRefs": [
+        "app/auth.py:34",
+        "app/auth.py:42",
+        "app/main.py:110"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "fb2527dd-27de-4e4e-93af-d19526f4711d",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Refresh token rotation",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Opaque refresh tokens are stored by hash, rotated at refresh, and token reuse revokes the user token family.",
+      "evidenceRefs": [
+        "app/main.py:110",
+        "app/main.py:211",
+        "app/main.py:225",
+        "app/models.py:137",
+        "app/crud.py:41"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "af3c68b0-e9e3-4a88-b110-9e309445da22",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Secure cookies",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Cookies are HttpOnly and configurable for Secure/SameSite/domain; COOKIE_SECURE defaults false for local use and deployed settings were not verified.",
+      "evidenceRefs": [
+        "app/auth.py:76",
+        "app/auth.py:91",
+        "app/config.py:67"
+      ],
+      "remainingWork": [
+        "Verify production cookie settings against approved deployment configuration."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "2515bd15-1e27-4c24-ae7b-b9f1cdaa79c9",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Protected routes",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Authentication dependencies protect account, verified-user, and learning-space/tutor endpoints; public endpoints remain intentionally accessible.",
+      "evidenceRefs": [
+        "app/main.py:138",
+        "app/main.py:156",
+        "app/main.py:167",
+        "app/main.py:327",
+        "app/main.py:454"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "5fcc8ac5-0656-460e-9951-8714862cda90",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Role system (Admin / Student)",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Role enum and admin authorization/seed exist, but implementation uses client/admin while the supplied task names Student/Admin; no admin management endpoints were found.",
+      "evidenceRefs": [
+        "app/models.py:27",
+        "app/main.py:177",
+        "app/seed_admin.py:17"
+      ],
+      "remainingWork": [
+        "Owner/DMD to confirm whether client is the intended Student role and what role-scoped admin behavior is required."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "aea8a05d-dbad-412e-b68f-00d27983b03b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "PostgreSQL",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Async SQLAlchemy/PostgreSQL models and an Alembic migration chain are present; no live database migration was run.",
+      "evidenceRefs": [
+        "app/database.py:1",
+        "app/models.py:93",
+        "alembic/versions/2764c19f2f34_baseline_users_courses_chat_sessions.py:21"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "058eb8df-69ab-47d0-8b69-dd2de9313e68",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Redis integration",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Upstash Redis REST client and fixed-window limiter exist; the limiter intentionally fails open when credentials are absent or Redis errors.",
+      "evidenceRefs": [
+        "app/redis_client.py:12",
+        "app/rate_limit.py:23",
+        "app/config.py:81"
+      ],
+      "remainingWork": [
+        "Verify behavior in an authorized non-production Redis environment and confirm whether fail-open matches approved requirements."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "14728ce1-9f2a-468c-8be0-d787f2edca7c",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Railway deployment",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Procfile runs Alembic then Uvicorn and config supports Railway variables; no deployment/runtime evidence is present.",
+      "evidenceRefs": [
+        "Procfile:1",
+        "app/config.py:95"
+      ],
+      "remainingWork": [
+        "Obtain deployment/health evidence for the authorized Railway service; no deployment was attempted."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "1d2737ab-c7c7-4181-b58e-71156a345784",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Environment management",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Environment-backed Pydantic settings cover database URL precedence, ports, CORS/cookies, email, Redis, and provider configuration. Two local URI normalization regressions passed; task-level environment behavior was not fully exercised.",
+      "evidenceRefs": [
+        "app/config.py:41",
+        "app/config.py:95",
+        "tests/test_config_helpers.py:1"
+      ],
+      "remainingWork": [
+        "Add or run approved tests for environment precedence and deployment configuration."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "a63b6095-26f3-409e-b4de-b0bd5a65f205",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "API gateway preparation",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "not_observed",
+      "scopeApplicability": "backend-relevant",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "criteria": [],
+      "assessment": "No API gateway or gateway-preparation implementation was observed in the inspected backend tree.",
+      "evidenceRefs": [
+        "app/main.py:129",
+        "app/main.py:496"
+      ],
+      "remainingWork": [
+        "Owner/DMD to clarify intended gateway scope and acceptance before implementation."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "4babc77a-16ba-42d4-bdd0-430c245825dc",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Rate limiting",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Per-user/per-IP fixed-window limits are attached to chat and tutor-turn routes; Upstash failure is logged and fails open.",
+      "evidenceRefs": [
+        "app/rate_limit.py:23",
+        "app/rate_limit.py:48",
+        "app/main.py:282",
+        "app/main.py:454"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "b2453da8-fbc6-43eb-87de-7dcee3eef77b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Logging",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Application modules use Python logging for provider, email, rate-limit, and Redis failures; no centralized logging deployment was verified.",
+      "evidenceRefs": [
+        "app/email.py:13",
+        "app/rate_limit.py:12",
+        "app/redis_client.py:10",
+        "app/orchestrator.py:29"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "482b9b67-6db1-46fc-88ed-bfbc1460f405",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Create Learning Space",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Verified users can create owner-scoped learning spaces through the API.",
+      "evidenceRefs": [
+        "app/main.py:327",
+        "app/main.py:335",
+        "app/crud.py:126"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "92ee7256-6a2d-4540-a59c-a80afb596216",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Delete Learning Space",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Learning-space deletion is owner-checked and soft-deletes the space.",
+      "evidenceRefs": [
+        "app/main.py:320",
+        "app/main.py:373",
+        "app/crud.py:156"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "becf704a-7c5a-464b-9967-42c7d8b0ea6f",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Space limits (5)",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "The API enforces five active learning spaces per user.",
+      "evidenceRefs": [
+        "app/constants.py:8",
+        "app/main.py:336",
+        "app/crud.py:110"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "f8299448-1ab7-4b5d-8cb3-0a67c26fc445",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Scenario selection",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Space creation selects a fixed ScenarioType enum; an admin-editable scenario catalog/builder is separate and not observed.",
+      "evidenceRefs": [
+        "app/models.py:70",
+        "app/schemas.py:51",
+        "app/main.py:336"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "0fc70fe5-b946-4179-8881-afc28a35fcf9",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Level selection",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Space creation accepts an enumerated CEFR level A1–C1.",
+      "evidenceRefs": [
+        "app/models.py:78",
+        "app/schemas.py:51",
+        "app/main.py:336"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "3f20fd5e-894a-4c15-bc20-99fc180deab8",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Tutor selection",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Space creation accepts one of four fixed tutor personas.",
+      "evidenceRefs": [
+        "app/models.py:86",
+        "app/schemas.py:51",
+        "app/main.py:336"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "2fee66ed-fb1f-44a5-b450-4eb52ee05194",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "2.1 Classroom Navigation",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "unverified",
+      "scopeApplicability": "cross-repository; UI outside selected backend",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "unknown",
+      "criteria": [],
+      "assessment": "No classroom navigation UI was observed in this backend repository; navigation behavior may reside in the separately bound frontend repository.",
+      "evidenceRefs": [],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": [
+        "Frontend repository was not inspected."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "96934296-6b55-4040-b265-1b920611c56b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "2.2 Conversation MVP",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "A verified-user tutor-turn API supports conversational turns, personas, transcript persistence, and LLM/dev fallback; UI behavior is outside this repository.",
+      "evidenceRefs": [
+        "app/main.py:454",
+        "app/orchestrator.py:86",
+        "app/crud.py:205"
+      ],
+      "remainingWork": [
+        "Confirm backend and frontend acceptance criteria and verify the end-to-end flow in non-production."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "27a88378-fde3-476e-a357-730e88d1f9a9",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "2.3 Structured Corrections",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Tutor-turn response includes correction/translation/hints/mistakes; mistake category is derived from subtype and persisted.",
+      "evidenceRefs": [
+        "app/schemas.py:91",
+        "app/schemas.py:114",
+        "app/schemas.py:138",
+        "app/taxonomy.py:15",
+        "app/orchestrator.py:130"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "051184c3-7119-4e5a-9ce4-932027c49f7d",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Structured Tutor Response",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "The tutor returns a typed structured response and validates JSON output; dev/error fallback behavior is present.",
+      "evidenceRefs": [
+        "app/schemas.py:121",
+        "app/schemas.py:146",
+        "app/orchestrator.py:59",
+        "app/orchestrator.py:86"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "f1b9182b-d6f0-4bea-bc65-4e1013cbaebb",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Mistake Tracking Engine",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Mistakes are typed, taxonomy-mapped, persisted, and aggregated by category/subtype/severity.",
+      "evidenceRefs": [
+        "app/schemas.py:91",
+        "app/taxonomy.py:15",
+        "app/crud.py:238",
+        "app/crud.py:269",
+        "app/models.py:281"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "60ff964c-a2b3-422f-9c2b-3018423448e6",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Learning Profile",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Per-space and global profile models, rollups, mistake history, and CEFR fields are implemented; learning_style remains nullable and domain_vocabulary population was not observed.",
+      "evidenceRefs": [
+        "app/models.py:315",
+        "app/models.py:353",
+        "app/profile_engine.py:61",
+        "app/profile_engine.py:100",
+        "alembic/versions/d4f1b6e29a07_pr11_learning_profiles.py:21"
+      ],
+      "remainingWork": [
+        "Confirm required profile dimensions and verify profile rollup against accepted session data."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "7ebda9c1-7557-4483-a363-3450b80fe57b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Adaptive Prompt Builder",
+      "sourceDmdPlanningState": "in_progress",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Tutor turns load global/space/session profile signals and build an adaptive system prompt.",
+      "evidenceRefs": [
+        "app/prompt_builder.py:45",
+        "app/prompt_builder.py:103",
+        "app/orchestrator.py:102",
+        "app/orchestrator.py:119"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "8615c4f8-d8be-4a6b-b40a-8468ffd16abb",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Hybrid assessment engine",
+      "sourceDmdPlanningState": "completed",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Session assessment combines deterministic metrics, optional LLM refinement, and two-session CEFR promotion smoothing.",
+      "evidenceRefs": [
+        "app/cefr_engine.py:28",
+        "app/cefr_engine.py:74",
+        "app/cefr_engine.py:115",
+        "app/profile_engine.py:206"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "taskId": "882e6b54-f200-435e-8628-3b7b7ce5fc30",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Progress Dashboard",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Backend progress-count and end-of-session score/summary APIs exist; no dashboard UI or historical dashboard endpoint was observed in this backend.",
+      "evidenceRefs": [
+        "app/main.py:481",
+        "app/main.py:496",
+        "app/profile_engine.py:149"
+      ],
+      "remainingWork": [
+        "Confirm required dashboard views with DMD and inspect the frontend only under a separate authorized target."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "taskId": "658ea083-0e25-4e77-8bed-6d5e906feae5",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Four Linguistic Pillars",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "implemented",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "criteria": [],
+      "assessment": "Four linguistic categories, subtype mapping, severity-weighted session metrics, and per-pillar summary scores are implemented.",
+      "evidenceRefs": [
+        "app/models.py:34",
+        "app/taxonomy.py:15",
+        "app/session_metrics.py:33",
+        "app/schemas.py:157"
+      ],
+      "remainingWork": [
+        "Confirm repository-specific acceptance criteria with the owner; the supplied task has none."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "taskId": "8bcccf9a-edb3-4d0c-ba3d-12ee752e59ec",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Admin Panel",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "not_observed",
+      "scopeApplicability": "backend-relevant",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "criteria": [],
+      "assessment": "Admin role/seed support exists, but no admin panel management API or backend admin UI was observed.",
+      "evidenceRefs": [
+        "app/main.py:177",
+        "app/seed_admin.py:17"
+      ],
+      "remainingWork": [
+        "Owner/DMD to confirm the backend/admin boundary and acceptance criteria."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "taskId": "ed24af09-4144-42c3-897c-49a3d1b82bd6",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Scenario Builder",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "not_observed",
+      "scopeApplicability": "backend-relevant",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "criteria": [],
+      "assessment": "The backend has fixed scenario enums for learning-space selection but no scenario catalog CRUD or scenario-builder API.",
+      "evidenceRefs": [
+        "app/models.py:70",
+        "app/main.py:327"
+      ],
+      "remainingWork": [
+        "Owner/DMD to confirm whether scenario authoring is required in this repository."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "48245791-8fec-4e71-b66b-4ccefa87a805",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Speech-to-Text",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "not_observed",
+      "scopeApplicability": "backend-relevant",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "criteria": [],
+      "assessment": "No speech/audio ingestion or speech-to-text service/API was observed in the inspected backend tree.",
+      "evidenceRefs": [
+        "app/main.py:129"
+      ],
+      "remainingWork": [
+        "Owner/DMD to confirm authorized provider, data handling, and acceptance before implementation."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "a9a82f9a-2c57-40eb-bd96-a77a64067cdd",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "OpenAI Realtime Integration",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "not_observed",
+      "scopeApplicability": "backend-relevant",
+      "locations": [],
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "criteria": [],
+      "assessment": "No OpenAI Realtime session, websocket, or audio endpoint was observed in the inspected backend tree.",
+      "evidenceRefs": [
+        "app/main.py:129"
+      ],
+      "remainingWork": [
+        "Owner/DMD to confirm authorized Realtime scope and non-production test conditions."
+      ],
+      "blockers": []
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "36379ec3-b572-4bca-b02a-035e7a52b2e4",
+        "engineeringId": null,
+        "ref": null
+      },
+      "title": "Pronunciation Coaching",
+      "sourceDmdPlanningState": "pending",
+      "sourceDmdRecordedState": {
+        "implementation": null,
+        "verification": null,
+        "pullRequestUrl": null,
+        "repositoryVerified": false
+      },
+      "implementation": "partial",
+      "scopeApplicability": "backend-relevant",
+      "locations": [
+        {
+          "type": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "remote_branch",
+          "ref": "refs/remotes/origin/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        },
+        {
+          "type": "local_commit",
+          "ref": "refs/heads/adaptive-learning-engine",
+          "sha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+          "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223"
+        }
+      ],
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "criteria": [],
+      "assessment": "Pronunciation exists only as a dormant mistake subtype mapped to orthography; no pronunciation coaching or audio behavior was observed.",
+      "evidenceRefs": [
+        "app/models.py:43",
+        "app/taxonomy.py:24"
+      ],
+      "remainingWork": [
+        "Owner/DMD to confirm voice-phase acceptance; no coaching behavior is asserted."
+      ],
+      "blockers": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "Backend local regression tests - system interpreter attempt",
+      "status": "failed",
+      "verification": "failed",
+      "command": "python3 -m unittest discover -s tests -v",
+      "result": "ModuleNotFoundError: No module named pydantic_settings",
+      "sourceSha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+      "harnessSha": "eea4612a9c3af59964f34acbf47b6ba928e1e5fda3e026f2efd00b9db68367aa",
+      "dirtyTreeIdentity": "pre-existing untracked tests/test_config_helpers.py; file SHA-256 recorded above",
+      "interpretation": "environment/dependency failure before assertions executed"
+    },
+    {
+      "name": "Backend local regression tests - isolated declared dependencies",
+      "status": "passed",
+      "verification": "passed",
+      "command": "<temporary-venv-python> -m unittest discover -s tests -v",
+      "setup": "python3 -m venv <temporary-venv> && <temporary-venv-python> -m pip install 'pydantic==2.13.4' 'pydantic-settings>=2.5,<3'",
+      "result": "Ran 2 tests in 0.000s; OK",
+      "sourceSha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+      "mainSha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "sameSourceTreeAsMain": true,
+      "harnessSha": "eea4612a9c3af59964f34acbf47b6ba928e1e5fda3e026f2efd00b9db68367aa",
+      "dirtyTreeIdentity": "pre-existing untracked tests/test_config_helpers.py; not in HEAD or main",
+      "testFiles": [
+        {
+          "path": "tests/test_config_helpers.py",
+          "sha256": "eea4612a9c3af59964f34acbf47b6ba928e1e5fda3e026f2efd00b9db68367aa"
+        }
+      ]
+    },
+    {
+      "name": "Pyright strict type check",
+      "status": "passed",
+      "verification": "passed",
+      "command": "pyright",
+      "result": "0 errors, 0 warnings, 0 informations",
+      "sourceSha": "f5370716934ba5dd8d4b1fa516caf5105bec4c5d",
+      "mainSha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "sameSourceTreeAsMain": true,
+      "config": "pyrightconfig.json (strict, Python 3.10; configured venvPath ../ and venv .venv)"
+    },
+    {
+      "name": "Build/lint/runtime/provider/deployment/CI checks",
+      "status": "not_run",
+      "verification": "not_run",
+      "reason": "No declared build/lint command; Ruff, Mypy, and Pytest were not installed. No live DB/provider/runtime/deployment/CI checks were performed."
+    }
+  ],
+  "unmappedRepositoryFindings": [
+    {
+      "title": "Password reset",
+      "canonicalTaskId": null,
+      "finding": "Password reset is named in the supplied Authentication & Security milestone description, but no canonical task ID for it was supplied and no password-reset route/token flow was observed in this backend.",
+      "evidenceRefs": [
+        "app/main.py:187",
+        "app/main.py:272"
+      ],
+      "status": "not_observed_in_selected_backend; project-level status unknown"
+    },
+    {
+      "title": "Saved tests/quiz slots",
+      "canonicalTaskId": null,
+      "finding": "Owner-scoped test-slot list/create/delete APIs and persistence exist, but no supplied task title maps directly to this feature.",
+      "evidenceRefs": [
+        "app/main.py:410",
+        "app/main.py:418",
+        "app/main.py:434",
+        "app/models.py:209"
+      ],
+      "status": "implemented_on_main_in_backend; no canonical task mapping inferred"
+    }
+  ],
+  "proposedNextWork": [
+    {
+      "proposal": "Provide an approved project scope/baseline revision and repository-specific acceptance criteria for the 38 supplied tasks.",
+      "authority": "DMD owner review required; no task state changes proposed."
+    },
+    {
+      "proposal": "Confirm backend/frontend applicability and separately audit the frontend target if authorized.",
+      "authority": "Existing context identifies a separate repository binding; excluded here."
+    },
+    {
+      "proposal": "Resolve the client-versus-Student role naming/behavior and confirm password-reset, admin-panel, scenario-builder, and voice scope.",
+      "authority": "Owner/DMD decision; no task IDs or acceptance were invented."
+    },
+    {
+      "proposal": "Run authorized non-production DB migration, Redis, email, LLM, and deployment checks; add persistent endpoint/profile regression coverage under a reviewed test change.",
+      "authority": "Requires appropriate test environment and review; no external providers were called."
+    }
+  ],
+  "policy": {
+    "conflicts": [],
+    "missingReferences": [
+      "DMD-internal architecture reference ../architecture/ARCHITECTURAL_RULES_DMD.md is cited by the supplied policy but was not exported.",
+      "DMD-internal contributor work-system and technology-licensing/client-rights references are cited by the supplied policy but were not exported.",
+      "No repository AGENTS.md, CLAUDE.md, project architecture rules, or historical audit existed before bootstrap; bootstrap instructions were created without overwriting existing instructions."
+    ],
+    "scopeConfirmationRequired": true
+  },
+  "limitations": [
+    "The supplied DMD context marks the approved baseline missing, has empty acceptance criteria for all tasks, and explicitly says engineering IDs are intentionally null.",
+    "DMD planning states and repository implementation findings are separate. Adaptive Prompt Builder is marked in_progress in DMD planning while its implementation is present in the audited main-equivalent tree.",
+    "The context records repositoryVerified=false for all tasks; this audit did not change DMD task states or claim acceptance.",
+    "No engineering-state.json existed before audit; none was invented because no maintained state path or engineering ID was supplied.",
+    "Bootstrap and reports are local untracked files; no push, merge, deployment, DMD write, or automatic ingestion occurred."
+  ],
+  "outputInventory": {
+    "createdAuditFiles": [
+      ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/audits/20261017T224310Z/repository-audit.json",
+      ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/audits/20261017T224310Z/report.md"
+    ],
+    "updatedAuditSupportFile": "dmd-docs/DMD_IMPLEMENTATION_REPORT.md",
+    "preexistingFilesPreserved": [
+      "tests/test_config_helpers.py"
+    ],
+    "priorDmdAuditFilesPreserved": []
+  },
+  "distributionDerivative": {
+    "sourceFile": "repository-audit.json",
+    "sourceSha256": "a45e5c1d96aadd5f23fb0516ed09df76a5bf920480bb05649a92b5eb29220887",
+    "absoluteLocalPathsRemoved": true,
+    "portablePlaceholders": [
+      "<selected-repository-root>",
+      "<temporary-executor>",
+      "<temporary-packet.json>",
+      "<temporary-venv>",
+      "<temporary-venv-python>"
+    ]
+  }
+}

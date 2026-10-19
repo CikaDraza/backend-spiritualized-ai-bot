@@ -1,0 +1,40 @@
+{
+  "schema": "dmd.audit-preservation.v1",
+  "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+  "repository": "CikaDraza/backend-spiritualized-ai-bot",
+  "observedAt": "2026-10-17T22:43:10Z",
+  "report": {
+    "path": ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/audits/20261017T224310Z/distribution/repository-audit.json",
+    "sha256": "8cdd3aea9e08847027946cc0fadce8928fae9f9e4d47fa049ccf6160e8ff5ffb",
+    "bytes": 117160
+  },
+  "original": {
+    "sha256": "a45e5c1d96aadd5f23fb0516ed09df76a5bf920480bb05649a92b5eb29220887",
+    "preservation": "exact_bytes_in_private_local_archive"
+  },
+  "sourceContext": {
+    "schema": "dmd.project-audit-context.v1",
+    "revision": "2bc9a22b493358ac2fb32bc4907cc8a4ae80642e9d060298d5f240041a4249bd",
+    "sha256": "5c4d72ebb7b38abc9e92f67a3548e8d1897b8b57e8bb85d2f85139b76efbcf2e"
+  },
+  "taskCount": 38,
+  "claimCounts": {
+    "implementation": {
+      "implemented": 23,
+      "unverified": 2,
+      "partial": 8,
+      "not_observed": 5
+    },
+    "verification": {
+      "not_run": 38
+    },
+    "deliveryStage": {
+      "on_main": 30,
+      "unknown": 2,
+      "planned": 6
+    }
+  },
+  "independentlyVerified": false,
+  "taskAccepted": false,
+  "preservationOnly": true
+}
