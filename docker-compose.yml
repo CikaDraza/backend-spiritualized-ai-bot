@@ -1,13 +1,14 @@
 # Local development dependencies for Spiritualized backend.
 # Postgres is exposed on 5455 to avoid clashing with host Postgres already on 5432/5433.
 #
-# Usage:
-#   docker compose up -d postgres
-#   export POSTGRES_DSN="postgresql+asyncpg://spirit:spirit@localhost:5455/spiritualized"
-#   alembic upgrade head
-#   uvicorn app.main:app --reload --port 8000
+# Usage: ./dev.sh (starts this Postgres, migrates, runs the backend with external services off).
+# Only Postgres runs in Docker; the backend and the frontend run on the host.
 #
 # Redis is added in PR5 (rate limiting); a commented stub is left below for convenience.
+
+# The project name is pinned so the data volume (backend-spirit_spirit_pg_data) and the
+# container stay the same whatever folder this repository is checked out in.
+name: backend-spirit
 
 services:
   postgres:
