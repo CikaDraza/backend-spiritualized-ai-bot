@@ -1,0 +1,1567 @@
+{
+  "schema": "dmd.repository-audit.v2",
+  "repositoryTarget": {
+    "schema": "dmd.repository-target.v1",
+    "repository": "CikaDraza/backend-spiritualized-ai-bot",
+    "repositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+    "bindingId": "1111f319-03bd-4eaf-a1fd-5a136b830e1f",
+    "bindingVersion": 1,
+    "repositoryId": "1261167223",
+    "access": "access_verified_contents_not_audited"
+  },
+  "sourceContext": {
+    "schema": "dmd.project-audit-context.v1",
+    "revision": "5e6201359508d247a9f56c52bba537eb5da25029688f23c0fa473f001eb47020"
+  },
+  "subject": {
+    "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6"
+  },
+  "scope": {
+    "all": true,
+    "milestoneIds": [
+      "ce94df82-1953-406b-a924-9bab25367242",
+      "4154e590-1c77-49f2-bd45-44236cffb8dd",
+      "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+      "85155ea4-8760-4c22-ac96-099345abf4ed",
+      "e67e32c3-e741-47df-91d3-235cd9e69907",
+      "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+      "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+      "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+      "f62df4fe-ec0d-4673-966f-ef4bd90485f9"
+    ]
+  },
+  "trust": "engineer_report_requires_dmd_validation",
+  "observedAt": "2026-11-01T00:44:42Z",
+  "coverage": {
+    "expectedRepositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+    "repositoryIdentity": "locally_observed_origin_matches_expected_not_independently_verified",
+    "local": {
+      "status": "checked",
+      "refs": [
+        "adaptive-learning-engine@f5370716934ba5dd8d4b1fa516caf5105bec4c5d (checked out in user checkout)",
+        "chore/safe-local-dev@e1b777058188c431a164547fd017c38df0d680ec",
+        "main@e75cace365d05a0c3d95e1dd79bc23b0247967fc (stale; 5 commits behind origin/main)",
+        "pr10-classroom-conversation-text@7c4749db7cbf9d44460b7b06320ecc101b6a5922",
+        "pr11-structured-conversation@5f093b2b46f9e2c4c0ad8aa8e64b2b87a4bcf6e1"
+      ],
+      "worktrees": [
+        "user checkout (adaptive-learning-engine, clean)",
+        "audit worktree dmd/audit/36f94e99-e319-4bdf-b6fd-715890379331 from origin/staging"
+      ],
+      "dirtyPaths": []
+    },
+    "remote": {
+      "status": "fetched",
+      "refs": [
+        "main@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "staging@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "adaptive-learning-engine@f5370716934ba5dd8d4b1fa516caf5105bec4c5d (ancestor of main)",
+        "chore/safe-local-dev@e1b777058188c431a164547fd017c38df0d680ec (1 commit ahead of main)",
+        "dmd/audit-preservation/2026-10-19-8cdd3aea@fd84390cc84a6c1b585f59ccdf6a2d4fb1a90657 (1 commit ahead of main; docs/audit preservation only)",
+        "fix/db-url-precedence@2943c576d9ccd9ae85041c488ee37dfb851da48b (ancestor of main)",
+        "learning-spaces@c4db6139e51cdfdd5189222c83f9e3a9aacb5208 (ancestor of main)",
+        "pr10-classroom-conversation-text@7c4749db7cbf9d44460b7b06320ecc101b6a5922 (ancestor of main)",
+        "pr11-structured-conversation@5f093b2b46f9e2c4c0ad8aa8e64b2b87a4bcf6e1 (ancestor of main)"
+      ],
+      "unavailableRefs": [
+        "origin/role-model@a1b381e (stale local tracking ref; not on live remote heads; ancestor of main, not pruned)"
+      ]
+    },
+    "main": {
+      "branch": "main",
+      "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "treeSha": "a687405d8172d1ab5698b2d7c71b5ffc4eecc25b",
+      "status": "checked",
+      "stagingSha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "localMainSha": "e75cace365d05a0c3d95e1dd79bc23b0247967fc",
+      "localMainStatus": "stale_behind_origin_main_by_5_commits"
+    },
+    "gaps": [
+      "test_setup_blocked: no test files or test runner (pytest not installed, not in requirements.txt, no tests tracked on main); a separate test-setup task is proposed.",
+      "No CI/PR/check data read; GitHub PR/CI APIs not queried (not_connected).",
+      "Deployed Railway/Vercel/Upstash/Resend/OpenAI/Postgres state not observed; no external or production services were contacted.",
+      "Frontend repository CikaDraza/spiritualized-ai-bot is outside this audit's coverage; frontend-dependent tasks are not_observed here, not proof of no implementation.",
+      "Baseline missing: DMD context states the current plan is not an approved baseline (scope_confirmation_required for formal scope/acceptance).",
+      "Acceptance criteria are empty for every task; no task can be declared accepted.",
+      "An earlier audit (20261017T224310Z, payload sha256 8cdd3aea9e08847027946cc0fadce8928fae9f9e4d47fa049ccf6160e8ff5ffb) exists on remote branch dmd/audit-preservation/2026-10-19-8cdd3aea against context revision 2bc9a22b...; it was preserved unchanged and not compared here (different context revision, 38 vs current task set).",
+      "Live provider behaviour (OpenAI, Resend, Upstash) and database migrations were not executed."
+    ]
+  },
+  "tasks": [
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "taskId": "9f23d45c-2f41-45d5-a99a-bc96d5243700",
+        "engineeringId": "757fec85-9348-477d-823f-3ff9ec6135f7",
+        "ref": "SLT-9"
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "Procfile",
+            "app/config.py",
+            "alembic/versions"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Procfile:1 alembic upgrade head && uvicorn app.main:app --port $PORT@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/config.py:112 resolve_railway_settings (DATABASE_URL)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:77-87 FastAPI app, lifespan@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "alembic/versions: 8 migrations@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Actual Railway deployment/service state is not observable from the repository; DMD records this task implemented+accepted (repositoryVerified=false) — not independently confirmed here.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "taskId": "9b3961df-c663-4bd4-8969-7a07ac2bca2e",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "unknown",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [
+        "Next.js frontend / Vercel hosting: outside this backend repository's coverage; assess from the frontend repository audit (CikaDraza/spiritualized-ai-bot) or other evidence."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "Out of coverage; no criteria supplied."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "21863775-f0bd-40f1-8b72-213dd6a17a76",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/crud.py",
+            "app/auth.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:187-197 POST /auth/register (duplicate email 400, argon2id hash via pwdlib, verification email, session start)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "ac52bfc6-c799-4b51-8486-3f182b099bf6",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/crud.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:200-208 POST /auth/login; crud.authenticate_user@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "3680c14f-032c-48b0-a5b4-b880353a5438",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/email.py",
+            "app/email_templates.py",
+            "app/crud.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:259-279 GET /auth/verify, POST /auth/resend-verification@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:119-127 _issue_verification (hashed token replaces pending one, expiry)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/email.py Resend sender; logs link when unconfigured@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Live Resend delivery/domain not exercised.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "303311c2-b390-48e6-9ae4-8c0e107a120c",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/auth.py",
+            "app/config.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/auth.py:39-55 create/decode HS256 JWT@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/config.py:54 ACCESS_TOKEN_EXPIRE_MINUTES=15@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Observation: SECRET_KEY default is the literal 'changeme' (app/config.py:51); production must override. Not verified for the deployed service.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "fb2527dd-27de-4e4e-93af-d19526f4711d",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/auth.py",
+            "app/crud.py",
+            "app/models.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:211-237 POST /auth/refresh (hash lookup, rotation, reuse revokes all tokens)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/models.py:137 RefreshToken@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "af3c68b0-e9e3-4a88-b110-9e309445da22",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/auth.py",
+            "app/config.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/auth.py:82-107 httponly cookies, refresh cookie path /auth@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/config.py:62-64 COOKIE_SECURE default False, SAMESITE default lax@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Cookie Secure flag defaults to False; correct production values (COOKIE_SECURE/SAMESITE/DOMAIN) cannot be confirmed from the repository.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "2515bd15-1e27-4c24-ae7b-b9f1cdaa79c9",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:138-175 get_current_user_optional/get_current_user / get_verified_user dependencies@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py: /spaces, /tests, /tutor/turn, /tutor/session/complete, /tutor/progress use get_verified_user@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Observation: POST /chat uses the optional-user dependency (anonymous allowed, rate limited by IP)."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "5fcc8ac5-0656-460e-9951-8714862cda90",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/models.py",
+            "app/main.py",
+            "app/seed_admin.py",
+            "alembic/versions/a1cf86800621_add_user_role_client_admin.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/models.py:27-31 Role {client, admin}@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:177-184 get_admin_user gate@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/seed_admin.py@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "get_admin_user is defined but no endpoint uses it at this SHA.",
+        "Role value is 'client' where the DMD task says 'Student' (naming difference).",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "aea8a05d-dbad-412e-b68f-00d27983b03b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/database.py",
+            "app/models.py",
+            "alembic",
+            "app/config.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/database.py async SQLAlchemy/asyncpg@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/models.py 11 tables@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "alembic/versions: 8 migrations@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Migrations not applied/tested against a database in this audit.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "058eb8df-69ab-47d0-8b69-dd2de9313e68",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/redis_client.py",
+            "app/rate_limit.py",
+            "app/config.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/redis_client.py:14-24 Upstash REST client, no-op when unconfigured@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Live Upstash connectivity not exercised.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "14728ce1-9f2a-468c-8be0-d787f2edca7c",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "Procfile",
+            "app/config.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Procfile:1@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/config.py:112 Railway DATABASE_URL/MONGO resolution@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Deployment itself (service, variables, health) is not observable from the repository.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "1d2737ab-c7c7-4181-b58e-71156a345784",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/config.py",
+            ".env.example",
+            ".gitignore"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/config.py pydantic-settings Settings@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        ".env.example (keys only)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Off main: origin/chore/safe-local-dev (e1b777058188c431a164547fd017c38df0d680ec, 1 commit ahead of main) changes .env.example, README.md, dev.sh, docker-compose.yml; not reviewed for merge.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "a63b6095-26f3-409e-b4de-b0bd5a65f205",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [
+        "app/main.py:90-96 CORS middleware only; app/rate_limit.py:15-20 trusts first X-Forwarded-For hop@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No gateway-specific code found; task meaning is not defined by supplied criteria (scope_confirmation_required)."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "4babc77a-16ba-42d4-bdd0-430c245825dc",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/rate_limit.py",
+            "app/main.py",
+            "app/config.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/rate_limit.py:23-76 fixed-window Redis limiter, 429 + Retry-After@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:282,454 applied to /chat and /tutor/turn@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Applies only to /chat and /tutor/turn; fails open when Redis is unset or errors (documented in code).",
+        "X-Forwarded-For first hop is used for anonymous clients (spoofable without a trusted proxy).",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "b2453da8-fbc6-43eb-87de-7dcee3eef77b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/rate_limit.py",
+            "app/redis_client.py",
+            "app/email.py",
+            "app/orchestrator.py",
+            "app/cefr_engine.py",
+            "app/mongo.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "logging.getLogger in 5 modules@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/mongo.py chat log writer (not imported by active path per requirements.txt note)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No central logging configuration, request logging or structured logging observed.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "482b9b67-6db1-46fc-88ed-bfbc1460f405",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/crud.py",
+            "app/models.py",
+            "alembic/versions/3dfff594cc8a_scenarios_learning_spaces_scenario_type_.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:335-361 POST /spaces (verified user, auto title)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "92ee7256-6a2d-4540-a59c-a80afb596216",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/crud.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:373-381 DELETE /spaces/{id} soft delete, owner-only 404@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "becf704a-7c5a-464b-9967-42c7d8b0ea6f",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/constants.py",
+            "app/main.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/constants.py:9 MAX_ACTIVE_SPACES=5@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:341-352 409 space_limit_reached@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Limit is checked then created without a lock; concurrent requests could exceed it (observation, not tested).",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "f8299448-1ab7-4b5d-8cb3-0a67c26fc445",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/models.py",
+            "app/schemas.py",
+            "app/main.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/models.py:70-76 ScenarioType (5 fixed scenarios)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:335 SpaceCreate.scenario_type@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "0fc70fe5-b946-4179-8881-afc28a35fcf9",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/models.py",
+            "app/schemas.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/models.py:78-84 Level A1..C1@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "3f20fd5e-894a-4c15-bc20-99fc180deab8",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/agents.py",
+            "app/models.py",
+            "app/main.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/agents.py persona registry (mila, viktor, nora, maria)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:446-451 GET /tutor/personas@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "2fee66ed-fb1f-44a5-b450-4eb52ee05194",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "unknown",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [
+        "Classroom navigation (UI): outside this backend repository's coverage; assess from the frontend repository audit (CikaDraza/spiritualized-ai-bot) or other evidence."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "Out of coverage; no criteria supplied."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "96934296-6b55-4040-b265-1b920611c56b",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/orchestrator.py",
+            "app/main.py",
+            "app/crud.py",
+            "app/models.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:454-478 POST /tutor/turn@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/crud.py:247-275 transcript persistence@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "Merged via PR #5 (aba4483) containing 7c4749d 'conversation created'@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Backend only; the classroom UI is outside this repository's coverage.",
+        "Live OpenAI provider not exercised.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "27a88378-fde3-476e-a357-730e88d1f9a9",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/orchestrator.py",
+            "app/prompt_builder.py",
+            "app/schemas.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/prompt_builder.py _TURN_SHAPE strict JSON (ai_response, correction, translation, hints, mistakes)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/schemas.py:146 TutorTurnResponse@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Backend only; rendering in the frontend is outside coverage.",
+        "Live OpenAI provider not exercised.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "051184c3-7119-4e5a-9ce4-932027c49f7d",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/orchestrator.py",
+            "app/schemas.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/orchestrator.py single-call structured turn@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "Merged PR #5 aba4483 (5f093b2 PR11)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Live OpenAI provider not exercised.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "f1b9182b-d6f0-4bea-bc65-4e1013cbaebb",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/models.py",
+            "app/crud.py",
+            "app/taxonomy.py",
+            "alembic/versions/b2d7c9a14f30_pr11_mistake_subtype_severity.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/models.py:281 Mistake with subtype/severity@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/crud.py:277 create_mistakes@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:496-502 GET /tutor/progress@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "60ff964c-a2b3-422f-9c2b-3018423448e6",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/profile_engine.py",
+            "app/models.py",
+            "app/pattern_engine.py",
+            "alembic/versions/c3e8f1a47b92_pr11_learning_space_profiles.py",
+            "alembic/versions/d4f1b6e29a07_pr11_learning_profiles.py",
+            "alembic/versions/e5a2c83f0b14_pr12_profile_patterns.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/models.py:315 LearningSpaceProfile, :353 LearningProfile@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/profile_engine.py EMA space/global profile update@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/main.py:481-493 POST /tutor/session/complete@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "7ebda9c1-7557-4483-a363-3450b80fe57b",
+        "engineeringId": "8d45199b-6737-4892-ba77-26c9fb2a8d8e",
+        "ref": "SLT-1"
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/prompt_builder.py",
+            "app/orchestrator.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/prompt_builder.py build_system_prompt (3 memory layers)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/orchestrator.py:105-110 profiles loaded and passed to build_system_prompt@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "DMD records this task (SLT-1) as in_progress; code is present on main — disagreement for DMD review. Prompt quality not evaluated.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "8615c4f8-d8be-4a6b-b40a-8468ffd16abb",
+        "engineeringId": null,
+        "ref": null
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/cefr_engine.py",
+            "app/session_metrics.py",
+            "app/profile_engine.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/session_metrics.py deterministic Layer A@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/cefr_engine.py assess_cefr (LLM-refined) + decide_cefr smoothing@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Live OpenAI refinement not exercised.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "taskId": "882e6b54-f200-435e-8628-3b7b7ce5fc30",
+        "engineeringId": "b0e37f46-864d-4439-ba88-cfe15451855f",
+        "ref": "SLT-2"
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/main.py",
+            "app/profile_engine.py",
+            "app/schemas.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/main.py:481-502 session summary and mistake-count endpoints@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/schemas.py:166 SessionSummary@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Only data endpoints observed; no dashboard aggregation endpoint for history; UI outside coverage.",
+        "DMD records this task (SLT-2) as planned; partial backend support exists on main — disagreement for DMD review.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "taskId": "658ea083-0e25-4e77-8bed-6d5e906feae5",
+        "engineeringId": "4b738545-065e-4010-afe2-8ff80559877f",
+        "ref": "SLT-3"
+      },
+      "implementation": "implemented",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/models.py",
+            "app/taxonomy.py",
+            "app/session_metrics.py",
+            "app/schemas.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "app/models.py:34 LinguisticCategory@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/taxonomy.py subtype to pillar map@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+        "app/schemas.py:157 PillarScores@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Backend only; DMD records SLT-3 as planned — disagreement for DMD review.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "taskId": "8bcccf9a-edb3-4d0c-ba3d-12ee752e59ec",
+        "engineeringId": "187e5f77-2e35-46db-aa1a-1f966738e034",
+        "ref": "SLT-4"
+      },
+      "implementation": "partial",
+      "verification": "unavailable",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/heads/main",
+          "sha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+          "repository": "CikaDraza/backend-spiritualized-ai-bot",
+          "repositoryId": "1261167223",
+          "files": [
+            "app/models.py",
+            "app/main.py",
+            "app/seed_admin.py"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Role.admin, get_admin_user gate, seed_admin@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No admin management endpoints observed; UI outside coverage.",
+        "No automated tests exist in the repository at this SHA (test_setup_blocked); implementation is read from code only."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "taskId": "ed24af09-4144-42c3-897c-49a3d1b82bd6",
+        "engineeringId": "efc2fc68-1e21-42ff-9eb0-ee124c43bf6b",
+        "ref": "SLT-5"
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "locations": [],
+      "evidenceRefs": [
+        "app/models.py:70 ScenarioType is a fixed enum@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "No scenario creation/builder endpoints; planned per supplied DMD context (SLT-5 planned)."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "48245791-8fec-4e71-b66b-4ccefa87a805",
+        "engineeringId": "2e7e2a25-04c2-45b1-afc9-f3110531ec03",
+        "ref": "SLT-6"
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "locations": [],
+      "evidenceRefs": [
+        "app/taxonomy.py:22-24 (pronunciation subtype dormant until Voice)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Speech-to-text not observed in app/ at the pinned main SHA. Planned per the supplied DMD context (dmdRecordedState.implementation=planned / project scope 'Future phases'); no dates promised."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "a9a82f9a-2c57-40eb-bd96-a77a64067cdd",
+        "engineeringId": "cd703b91-67aa-4db2-ae95-d6c39387f409",
+        "ref": "SLT-7"
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "locations": [],
+      "evidenceRefs": [
+        "app/taxonomy.py:22-24 (pronunciation subtype dormant until Voice)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "OpenAI Realtime integration not observed in app/ at the pinned main SHA. Planned per the supplied DMD context (dmdRecordedState.implementation=planned / project scope 'Future phases'); no dates promised."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "36379ec3-b572-4bca-b02a-035e7a52b2e4",
+        "engineeringId": "c0f26d81-f3b8-4dfd-8943-0ceea7e75a3c",
+        "ref": "SLT-8"
+      },
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "planned",
+      "locations": [],
+      "evidenceRefs": [
+        "app/taxonomy.py:22-24 (pronunciation subtype dormant until Voice)@c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926"
+      ],
+      "remainingWork": [
+        "Pronunciation coaching not observed in app/ at the pinned main SHA. Planned per the supplied DMD context (dmdRecordedState.implementation=planned / project scope 'Future phases'); no dates promised."
+      ],
+      "blockers": [],
+      "criteria": [
+        {
+          "text": "No acceptance criteria supplied by DMD; cannot be declared accepted."
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "command": "git fetch origin; git ls-remote --heads origin",
+      "outcome": "passed",
+      "sourceSha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "note": "origin/staging and origin/main both at the pinned SHA; origin URL matches expected repository."
+    },
+    {
+      "command": "node dmd-apply-bootstrap.mjs --packet <packet> --target <audit worktree> [--apply]",
+      "outcome": "passed",
+      "note": "9 bootstrap files created; 0 existing files overwritten."
+    },
+    {
+      "command": "pyright --pythonpath <existing venv python> (strict per pyrightconfig.json)",
+      "outcome": "passed",
+      "sourceSha": "c44bfd8cc8b22cc399cdfc52689e4c0f8f5b0926",
+      "note": "0 errors, 0 warnings. Static type check only, not test evidence; pyright warned the configured venv path was not found and the supplied interpreter was used."
+    },
+    {
+      "command": "pytest",
+      "outcome": "not_run",
+      "note": "unavailable: no tests exist and pytest is not installed; nothing was installed by this audit."
+    }
+  ],
+  "unmappedRepositoryFindings": [
+    {
+      "text": "app/main.py POST /tutor/turn, /tutor/session/complete and /chat return str(exception) in HTTP 500 detail (possible internal detail disclosure)."
+    },
+    {
+      "text": "app/config.py ships default SECRET_KEY='changeme' and ADMIN_PASSWORD='change-me-admin'; production must override, deployed values not observed."
+    },
+    {
+      "text": "Off-main: origin/chore/safe-local-dev (1 commit: safe local development defaults) and origin/dmd/audit-preservation/2026-10-19-8cdd3aea (documentation/audit preservation) are not on main/staging."
+    },
+    {
+      "text": "app/mongo.py (Mongo chat log writer) is retained but not used by the active path."
+    }
+  ],
+  "proposedNextWork": [
+    {
+      "text": "Separate test-setup task: add pytest + pytest-asyncio and first meaningful tests (auth, refresh rotation, space limits, ownership, rate limiting). Needs owner approval."
+    },
+    {
+      "text": "Owner decision: confirm scope baseline and add acceptance criteria; resolve DMD vs repository status differences for SLT-1, SLT-2 and SLT-3."
+    },
+    {
+      "text": "Wire get_admin_user into admin endpoints, or record that Admin Panel scope is deferred."
+    },
+    {
+      "text": "Review hardening items: 500 detail leakage, default secrets, X-Forwarded-For trust, rate limits beyond chat."
+    }
+  ],
+  "provenance": {
+    "sourceAudits": [
+      {
+        "payloadSha256": "87d7feac62be3df1104fc043c2e043cf596dcd7a543960c03e0066d7471c622d",
+        "observedAt": "2026-11-01T00:44:42Z",
+        "sourceContext": {
+          "schema": "dmd.project-audit-context.v1",
+          "revision": "5e6201359508d247a9f56c52bba537eb5da25029688f23c0fa473f001eb47020"
+        }
+      }
+    ]
+  }
+}

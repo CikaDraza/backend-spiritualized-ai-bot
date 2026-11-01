@@ -1,0 +1,1076 @@
+{
+  "schema": "dmd.project-audit-context.v1",
+  "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+  "title": "Spiritualized Language Tutor",
+  "description": "## Project Scope\n\nSpiritualized Language Tutor is a full-stack AI-powered language learning platform designed to help users improve English communication through natural conversation, personalized feedback, and adaptive learning experiences.\n\nThe scope of this project includes the design and development of a secure authentication system, AI-driven classroom environment, personalized Learning Spaces, progress tracking, tutor memory, mistake analysis, CEFR-based proficiency evaluation, and administrative content management tools. The platform will support multiple learning modes including Conversation, Reading, Listening, Writing, Speaking, and Quizzes, while continuously analyzing user performance across key linguistic competencies.\n\nThe system will leverage modern AI technologies to provide contextual corrections, personalized recommendations, session summaries, and long-term learning adaptation based on user behavior and historical performance. Future phases will extend the platform with real-time voice interactions, pronunciation coaching, and immersive voice-to-voice tutoring powered by OpenAI Realtime APIs.\n\nThe final solution aims to serve both as a practical educational product and as a showcase of modern AI engineering, conversational AI orchestration, adaptive learning systems, and scalable SaaS architecture.\n",
+  "repositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+  "repositoryTarget": {
+    "schema": "dmd.repository-target.v1",
+    "repository": "CikaDraza/backend-spiritualized-ai-bot",
+    "repositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+    "bindingId": "1111f319-03bd-4eaf-a1fd-5a136b830e1f",
+    "bindingVersion": 1,
+    "repositoryId": "1261167223",
+    "access": "access_verified_contents_not_audited"
+  },
+  "repositoryTargets": [
+    {
+      "schema": "dmd.repository-target.v1",
+      "repository": "CikaDraza/backend-spiritualized-ai-bot",
+      "repositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+      "bindingId": "1111f319-03bd-4eaf-a1fd-5a136b830e1f",
+      "bindingVersion": 1,
+      "repositoryId": "1261167223",
+      "access": "access_verified_contents_not_audited"
+    },
+    {
+      "schema": "dmd.repository-target.v1",
+      "repository": "CikaDraza/spiritualized-ai-bot",
+      "repositoryUrl": "https://github.com/CikaDraza/spiritualized-ai-bot",
+      "bindingId": "b6cc85bf-a9a7-48ee-a076-3721c3c9c4a4",
+      "bindingVersion": 3,
+      "repositoryId": "1261295910",
+      "access": "access_verified_contents_not_audited"
+    }
+  ],
+  "repositoryBindings": [
+    {
+      "bindingId": "1111f319-03bd-4eaf-a1fd-5a136b830e1f",
+      "version": 1,
+      "repositoryUrl": "https://github.com/CikaDraza/backend-spiritualized-ai-bot",
+      "repositoryId": "1261167223",
+      "state": "connected",
+      "trackedBranches": [
+        "main",
+        "staging"
+      ]
+    },
+    {
+      "bindingId": "b6cc85bf-a9a7-48ee-a076-3721c3c9c4a4",
+      "version": 3,
+      "repositoryUrl": "https://github.com/CikaDraza/spiritualized-ai-bot",
+      "repositoryId": "1261295910",
+      "state": "connected",
+      "trackedBranches": [
+        "main",
+        "staging"
+      ]
+    }
+  ],
+  "repositoryBinding": "access_verified_contents_not_audited",
+  "scope": {
+    "all": true,
+    "milestoneIds": [
+      "ce94df82-1953-406b-a924-9bab25367242",
+      "4154e590-1c77-49f2-bd45-44236cffb8dd",
+      "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+      "85155ea4-8760-4c22-ac96-099345abf4ed",
+      "e67e32c3-e741-47df-91d3-235cd9e69907",
+      "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+      "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+      "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+      "f62df4fe-ec0d-4673-966f-ef4bd90485f9"
+    ],
+    "milestones": [
+      {
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "title": "# 1 — Foundation",
+        "description": "- Creating backend and server on Railway.\n- Creating DB Postgres\n- Creating frontend in NextJS and hosted on Vercel",
+        "tasks": [
+          {
+            "taskId": "9f23d45c-2f41-45d5-a99a-bc96d5243700",
+            "engineeringId": "757fec85-9348-477d-823f-3ff9ec6135f7",
+            "ref": "SLT-9",
+            "title": "Creating backend and server on Railway.",
+            "description": "We create DB schema on service",
+            "dmdPlanningState": "completed",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "implemented",
+              "verification": "accepted",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "9b3961df-c663-4bd4-8969-7a07ac2bca2e",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Creating frontend in NextJS and hosted on Vercel",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "title": "1.1 Authentication & Security",
+        "description": "- Registration\n- Login\n- Email verification\n- Password reset\n- JWT access tokens\n- Refresh token rotation\n- Secure cookies\n- Protected routes\n- Role system (Admin / Student)",
+        "tasks": [
+          {
+            "taskId": "21863775-f0bd-40f1-8b72-213dd6a17a76",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Registration",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "ac52bfc6-c799-4b51-8486-3f182b099bf6",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Login",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "3680c14f-032c-48b0-a5b4-b880353a5438",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Email verification",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "303311c2-b390-48e6-9ae4-8c0e107a120c",
+            "engineeringId": null,
+            "ref": null,
+            "title": "JWT access tokens",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "fb2527dd-27de-4e4e-93af-d19526f4711d",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Refresh token rotation",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "af3c68b0-e9e3-4a88-b110-9e309445da22",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Secure cookies",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "2515bd15-1e27-4c24-ae7b-b9f1cdaa79c9",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Protected routes",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "5fcc8ac5-0656-460e-9951-8714862cda90",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Role system (Admin / Student)",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "title": "1.2 Infrastructure",
+        "description": "PostgreSQL\nRedis integration\nRailway deployment\nEnvironment management\nAPI gateway preparation\nRate limiting\nLogging",
+        "tasks": [
+          {
+            "taskId": "aea8a05d-dbad-412e-b68f-00d27983b03b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "PostgreSQL",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "058eb8df-69ab-47d0-8b69-dd2de9313e68",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Redis integration",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "14728ce1-9f2a-468c-8be0-d787f2edca7c",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Railway deployment",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "1d2737ab-c7c7-4181-b58e-71156a345784",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Environment management",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "a63b6095-26f3-409e-b4de-b0bd5a65f205",
+            "engineeringId": null,
+            "ref": null,
+            "title": "API gateway preparation",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "4babc77a-16ba-42d4-bdd0-430c245825dc",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Rate limiting",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "b2453da8-fbc6-43eb-87de-7dcee3eef77b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Logging",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "title": "1.3 Learning Spaces",
+        "description": "Create Learning Space\nDelete Learning Space\nSpace limits (5)\nScenario selection\nLevel selection\nTutor selection",
+        "tasks": [
+          {
+            "taskId": "482b9b67-6db1-46fc-88ed-bfbc1460f405",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Create Learning Space",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "92ee7256-6a2d-4540-a59c-a80afb596216",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Delete Learning Space",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "becf704a-7c5a-464b-9967-42c7d8b0ea6f",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Space limits (5)",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "f8299448-1ab7-4b5d-8cb3-0a67c26fc445",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Scenario selection",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "0fc70fe5-b946-4179-8881-afc28a35fcf9",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Level selection",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "3f20fd5e-894a-4c15-bc20-99fc180deab8",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Tutor selection",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "title": "2 — Classroom System",
+        "description": "Classroom Navigation\nConversation MVP\nStructured Corrections",
+        "tasks": [
+          {
+            "taskId": "2fee66ed-fb1f-44a5-b450-4eb52ee05194",
+            "engineeringId": null,
+            "ref": null,
+            "title": "2.1 Classroom Navigation",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "96934296-6b55-4040-b265-1b920611c56b",
+            "engineeringId": null,
+            "ref": null,
+            "title": "2.2 Conversation MVP",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "27a88378-fde3-476e-a357-730e88d1f9a9",
+            "engineeringId": null,
+            "ref": null,
+            "title": "2.3 Structured Corrections",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "title": "3 — Adaptive Learning Engine (Brain of the Application)",
+        "description": "We will build the Learning Engine incrementally.\nEach phase should produce a stable, deployable system.\nAvoid introducing unnecessary abstractions.\nPrefer clean architecture over premature optimization.",
+        "tasks": [
+          {
+            "taskId": "051184c3-7119-4e5a-9ce4-932027c49f7d",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Structured Tutor Response",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "f1b9182b-d6f0-4bea-bc65-4e1013cbaebb",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Mistake Tracking Engine",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "60ff964c-a2b3-422f-9c2b-3018423448e6",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Learning Profile",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "7ebda9c1-7557-4483-a363-3450b80fe57b",
+            "engineeringId": "8d45199b-6737-4892-ba77-26c9fb2a8d8e",
+            "ref": "SLT-1",
+            "title": "Adaptive Prompt Builder",
+            "description": "",
+            "dmdPlanningState": "in_progress",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "in_progress",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "8615c4f8-d8be-4a6b-b40a-8468ffd16abb",
+            "engineeringId": null,
+            "ref": null,
+            "title": "Hybrid assessment engine",
+            "description": "",
+            "dmdPlanningState": "completed",
+            "scopeRevision": null,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": null,
+              "verification": null,
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "title": "4 — Progress & Analytics",
+        "description": "4.1 Progress Dashboard\n4.2 Four Linguistic Pillars",
+        "tasks": [
+          {
+            "taskId": "882e6b54-f200-435e-8628-3b7b7ce5fc30",
+            "engineeringId": "b0e37f46-864d-4439-ba88-cfe15451855f",
+            "ref": "SLT-2",
+            "title": "Progress Dashboard",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "658ea083-0e25-4e77-8bed-6d5e906feae5",
+            "engineeringId": "4b738545-065e-4010-afe2-8ff80559877f",
+            "ref": "SLT-3",
+            "title": "Four Linguistic Pillars",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "title": "5 — Content Management",
+        "description": "5.1 Admin Panel\n5.2 Scenario Builder",
+        "tasks": [
+          {
+            "taskId": "8bcccf9a-edb3-4d0c-ba3d-12ee752e59ec",
+            "engineeringId": "187e5f77-2e35-46db-aa1a-1f966738e034",
+            "ref": "SLT-4",
+            "title": "Admin Panel",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "ed24af09-4144-42c3-897c-49a3d1b82bd6",
+            "engineeringId": "efc2fc68-1e21-42ff-9eb0-ee124c43bf6b",
+            "ref": "SLT-5",
+            "title": "Scenario Builder",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "title": "6 — Voice Learning",
+        "description": "6.1 Speech-to-Text\n6.2 OpenAI Realtime Integration\n6.3 Pronunciation Coaching",
+        "tasks": [
+          {
+            "taskId": "48245791-8fec-4e71-b66b-4ccefa87a805",
+            "engineeringId": "2e7e2a25-04c2-45b1-afc9-f3110531ec03",
+            "ref": "SLT-6",
+            "title": "Speech-to-Text",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "a9a82f9a-2c57-40eb-bd96-a77a64067cdd",
+            "engineeringId": "cd703b91-67aa-4db2-ae95-d6c39387f409",
+            "ref": "SLT-7",
+            "title": "OpenAI Realtime Integration",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          },
+          {
+            "taskId": "36379ec3-b572-4bca-b02a-035e7a52b2e4",
+            "engineeringId": "c0f26d81-f3b8-4dfd-8943-0ceea7e75a3c",
+            "ref": "SLT-8",
+            "title": "Pronunciation Coaching",
+            "description": "",
+            "dmdPlanningState": "pending",
+            "scopeRevision": 1,
+            "acceptanceCriteria": [],
+            "dependsOn": [],
+            "dmdRecordedState": {
+              "implementation": "planned",
+              "verification": "not_required",
+              "pullRequestUrl": null,
+              "repositoryVerified": false
+            }
+          }
+        ]
+      }
+    ],
+    "taskCount": 38
+  },
+  "approvedScope": {
+    "status": "recorded",
+    "id": "b2f2d606-13f0-4472-b327-16894d3379e9",
+    "version": 1,
+    "snapshotSha256": "aef5f3aec30e84f988805f17a71f7be5a9a46b4363da36d2ee7167bc93b089e5",
+    "snapshot": {
+      "scope": {
+        "text": "## Project Scope\n\nSpiritualized Language Tutor is a full-stack AI-powered language learning platform designed to help users improve English communication through natural conversation, personalized feedback, and adaptive learning experiences.\n\nThe scope of this project includes the design and development of a secure authentication system, AI-driven classroom environment, personalized Learning Spaces, progress tracking, tutor memory, mistake analysis, CEFR-based proficiency evaluation, and administrative content management tools. The platform will support multiple learning modes including Conversation, Reading, Listening, Writing, Speaking, and Quizzes, while continuously analyzing user performance across key linguistic competencies.\n\nThe system will leverage modern AI technologies to provide contextual corrections, personalized recommendations, session summaries, and long-term learning adaptation based on user behavior and historical performance. Future phases will extend the platform with real-time voice interactions, pronunciation coaching, and immersive voice-to-voice tutoring powered by OpenAI Realtime APIs.\n\nThe final solution aims to serve both as a practical educational product and as a showcase of modern AI engineering, conversational AI orchestration, adaptive learning systems, and scalable SaaS architecture.",
+        "sha256": "af0a982e59afaa7bdbc7a8c8d9deee81b59c458f2fdb1dd3378e2fbcb5e49c4e"
+      },
+      "milestones": [
+        {
+          "id": "ce94df82-1953-406b-a924-9bab25367242",
+          "title": "# 1 — Foundation",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "9f23d45c-2f41-45d5-a99a-bc96d5243700",
+              "title": "Creating backend and server on Railway.",
+              "description": "We create DB schema on service"
+            },
+            {
+              "id": "9b3961df-c663-4bd4-8969-7a07ac2bca2e",
+              "title": "Creating frontend in NextJS and hosted on Vercel",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "committed"
+        },
+        {
+          "id": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+          "title": "1.1 Authentication & Security",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "21863775-f0bd-40f1-8b72-213dd6a17a76",
+              "title": "Registration",
+              "description": ""
+            },
+            {
+              "id": "ac52bfc6-c799-4b51-8486-3f182b099bf6",
+              "title": "Login",
+              "description": ""
+            },
+            {
+              "id": "3680c14f-032c-48b0-a5b4-b880353a5438",
+              "title": "Email verification",
+              "description": ""
+            },
+            {
+              "id": "303311c2-b390-48e6-9ae4-8c0e107a120c",
+              "title": "JWT access tokens",
+              "description": ""
+            },
+            {
+              "id": "fb2527dd-27de-4e4e-93af-d19526f4711d",
+              "title": "Refresh token rotation",
+              "description": ""
+            },
+            {
+              "id": "af3c68b0-e9e3-4a88-b110-9e309445da22",
+              "title": "Secure cookies",
+              "description": ""
+            },
+            {
+              "id": "2515bd15-1e27-4c24-ae7b-b9f1cdaa79c9",
+              "title": "Protected routes",
+              "description": ""
+            },
+            {
+              "id": "5fcc8ac5-0656-460e-9951-8714862cda90",
+              "title": "Role system (Admin / Student)",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "committed"
+        },
+        {
+          "id": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+          "title": "1.2 Infrastructure",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "aea8a05d-dbad-412e-b68f-00d27983b03b",
+              "title": "PostgreSQL",
+              "description": ""
+            },
+            {
+              "id": "058eb8df-69ab-47d0-8b69-dd2de9313e68",
+              "title": "Redis integration",
+              "description": ""
+            },
+            {
+              "id": "14728ce1-9f2a-468c-8be0-d787f2edca7c",
+              "title": "Railway deployment",
+              "description": ""
+            },
+            {
+              "id": "1d2737ab-c7c7-4181-b58e-71156a345784",
+              "title": "Environment management",
+              "description": ""
+            },
+            {
+              "id": "a63b6095-26f3-409e-b4de-b0bd5a65f205",
+              "title": "API gateway preparation",
+              "description": ""
+            },
+            {
+              "id": "4babc77a-16ba-42d4-bdd0-430c245825dc",
+              "title": "Rate limiting",
+              "description": ""
+            },
+            {
+              "id": "b2453da8-fbc6-43eb-87de-7dcee3eef77b",
+              "title": "Logging",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "committed"
+        },
+        {
+          "id": "85155ea4-8760-4c22-ac96-099345abf4ed",
+          "title": "1.3 Learning Spaces",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "482b9b67-6db1-46fc-88ed-bfbc1460f405",
+              "title": "Create Learning Space",
+              "description": ""
+            },
+            {
+              "id": "92ee7256-6a2d-4540-a59c-a80afb596216",
+              "title": "Delete Learning Space",
+              "description": ""
+            },
+            {
+              "id": "becf704a-7c5a-464b-9967-42c7d8b0ea6f",
+              "title": "Space limits (5)",
+              "description": ""
+            },
+            {
+              "id": "f8299448-1ab7-4b5d-8cb3-0a67c26fc445",
+              "title": "Scenario selection",
+              "description": ""
+            },
+            {
+              "id": "0fc70fe5-b946-4179-8881-afc28a35fcf9",
+              "title": "Level selection",
+              "description": ""
+            },
+            {
+              "id": "3f20fd5e-894a-4c15-bc20-99fc180deab8",
+              "title": "Tutor selection",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "committed"
+        },
+        {
+          "id": "e67e32c3-e741-47df-91d3-235cd9e69907",
+          "title": "2 — Classroom System",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "2fee66ed-fb1f-44a5-b450-4eb52ee05194",
+              "title": "2.1 Classroom Navigation",
+              "description": ""
+            },
+            {
+              "id": "96934296-6b55-4040-b265-1b920611c56b",
+              "title": "2.2 Conversation MVP",
+              "description": ""
+            },
+            {
+              "id": "27a88378-fde3-476e-a357-730e88d1f9a9",
+              "title": "2.3 Structured Corrections",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "committed"
+        },
+        {
+          "id": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+          "title": "3 — Adaptive Learning Engine (Brain of the Application)",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "051184c3-7119-4e5a-9ce4-932027c49f7d",
+              "title": "Structured Tutor Response",
+              "description": ""
+            },
+            {
+              "id": "f1b9182b-d6f0-4bea-bc65-4e1013cbaebb",
+              "title": "Mistake Tracking Engine",
+              "description": ""
+            },
+            {
+              "id": "60ff964c-a2b3-422f-9c2b-3018423448e6",
+              "title": "Learning Profile",
+              "description": ""
+            },
+            {
+              "id": "7ebda9c1-7557-4483-a363-3450b80fe57b",
+              "title": "Adaptive Prompt Builder",
+              "description": ""
+            },
+            {
+              "id": "8615c4f8-d8be-4a6b-b40a-8468ffd16abb",
+              "title": "Hybrid assessment engine",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "unconfirmed"
+        },
+        {
+          "id": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+          "title": "4 — Progress & Analytics",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "882e6b54-f200-435e-8628-3b7b7ce5fc30",
+              "title": "Progress Dashboard",
+              "description": ""
+            },
+            {
+              "id": "658ea083-0e25-4e77-8bed-6d5e906feae5",
+              "title": "Four Linguistic Pillars",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "unconfirmed"
+        },
+        {
+          "id": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+          "title": "5 — Content Management",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "8bcccf9a-edb3-4d0c-ba3d-12ee752e59ec",
+              "title": "Admin Panel",
+              "description": ""
+            },
+            {
+              "id": "ed24af09-4144-42c3-897c-49a3d1b82bd6",
+              "title": "Scenario Builder",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "unconfirmed"
+        },
+        {
+          "id": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+          "title": "6 — Voice Learning",
+          "phaseNumber": null,
+          "proposalId": null,
+          "tasks": [
+            {
+              "id": "48245791-8fec-4e71-b66b-4ccefa87a805",
+              "title": "Speech-to-Text",
+              "description": ""
+            },
+            {
+              "id": "a9a82f9a-2c57-40eb-bd96-a77a64067cdd",
+              "title": "OpenAI Realtime Integration",
+              "description": ""
+            },
+            {
+              "id": "36379ec3-b572-4bca-b02a-035e7a52b2e4",
+              "title": "Pronunciation Coaching",
+              "description": ""
+            }
+          ],
+          "deliveryCommitment": "unconfirmed"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Current plan is not an approved baseline. Engineering records are DMD records, not verified repository findings. Missing engineering IDs are intentional; do not invent them or accept tasks."
+  ],
+  "revision": "5e6201359508d247a9f56c52bba537eb5da25029688f23c0fa473f001eb47020"
+}
