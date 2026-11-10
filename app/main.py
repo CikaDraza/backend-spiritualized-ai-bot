@@ -1,3 +1,4 @@
+import os
 from contextlib import asynccontextmanager
 from uuid import uuid4
 
@@ -84,6 +85,9 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Spiritualized AI Mentor",
     description="FastAPI backend for the Spiritualized bilingual English mentor bot.",
+    docs_url=None if os.environ.get("RAILWAY_ENVIRONMENT") else "/docs",
+    redoc_url=None if os.environ.get("RAILWAY_ENVIRONMENT") else "/redoc",
+    openapi_url=None if os.environ.get("RAILWAY_ENVIRONMENT") else "/openapi.json",
     lifespan=lifespan,
 )
 
@@ -128,11 +132,7 @@ async def _issue_verification(db: AsyncSession, user: User) -> None:
 
 @app.get("/")
 async def root():
-    return {
-        "status": "ok",
-        "message": "Spiritualized Backend API is running",
-        "version": "0.1.0",
-    }
+    return {"status": "ok"}
 
 
 async def get_current_user_optional(
