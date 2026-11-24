@@ -50,6 +50,7 @@ from .crud import (
 )
 from .database import get_db
 from .email import send_verification_email
+from .health import router as health_router
 from .agents import list_personas
 from .orchestrator import run_turn
 from .profile_engine import complete_session
@@ -98,6 +99,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(health_router)
 
 
 def _profile(user: User) -> UserProfile:
